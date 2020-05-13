@@ -349,7 +349,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         linearLayout.setVisibility(View.GONE);
         companies = RealmManager.getCompanies();
         GridViewAdapter myAdapter = new GridViewAdapter(HomeActivity.this,companies, activity);
-        myrv.setLayoutManager(new GridLayoutManager(HomeActivity.this,4));
+        myrv.setLayoutManager(new GridLayoutManager(HomeActivity.this,3));
         // myAdapter.setHasStableIds(true);
         myrv.setAdapter(myAdapter);
 
@@ -749,12 +749,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         backPole.setVisibility(View.GONE);
         linearLayout.setVisibility(View.VISIBLE);
         ImageView imgConst = findViewById(R.id.imageConst);
+        ImageView imgConst2 = findViewById(R.id.imageConst2);
         ImageView imgIndu = findViewById(R.id.imageIndustrie);
         ImageView imgRock = findViewById(R.id.imagePierre);
         ImageView imgAgri = findViewById(R.id.imageAgri);
         ImageView imgServ = findViewById(R.id.imageService);
 
-        imgConst.setImageResource(R.drawable.construction);
+        imgConst.setImageResource(R.drawable.desc);
+        imgConst2.setImageResource(R.drawable.pipe2);
         imgIndu.setImageResource(R.drawable.industrie);
         imgRock.setImageResource(R.drawable.pierre);
         imgAgri.setImageResource(R.drawable.agri);

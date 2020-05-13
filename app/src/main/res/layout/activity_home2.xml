@@ -100,15 +100,24 @@
             android:layout_below="@+id/up"
             android:id="@+id/pole_linear"
             android:clipToPadding="false"
-            android:weightSum="5"
+            android:weightSum="4"
             android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:weightSum="2"
+        android:orientation="horizontal">
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardConst"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 app:cardCornerRadius="3dp"
                 app:cardUseCompatPadding="true"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="match_parent"
+               >
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -135,11 +144,50 @@
                         android:shadowDy="2"
                         android:shadowRadius="2"
                         android:textColor="@color/white"
-                        android:text="Pôle construction"/>
+                        android:text="CHIALI GROUPE"/>
 
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardConst2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="3dp"
+            app:cardUseCompatPadding="true"
+            android:layout_height="match_parent"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageConst2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:shadowColor="@color/text_shadow"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="2"
+                    android:textColor="@color/white"
+                    android:text="CHIALI TUBES"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView></LinearLayout>
             <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:id="@+id/cardPierre"
@@ -264,7 +312,7 @@
                 app:cardCornerRadius="3dp"
                 app:cardUseCompatPadding="true"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_weight="0">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"

@@ -45,6 +45,7 @@ public class CityActivity extends BaseSwipeBackActivity {
             intent.putExtra("company", CityActivity.companyName);
             startActivity(intent);
             finish();
+
         }
         else if(company.getCities().size() == 0){
             Toast.makeText(getApplicationContext(), "Filiale vide", Toast.LENGTH_SHORT).show();
