@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     RealmResults<Company> companies;
     ArrayList<Contact> contacts;
     private String TAG = "HOME";
-    private RecyclerView myrv;
+    private LinearLayout myrv;
     private RecyclerView contactsView;
     public static Handler handler;
     private String company;
@@ -76,14 +76,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private EditText search;
     private ContactAdapter adapter;
     private ArrayList<String> picsHome ;
-    private ImageView picHome, backPole;
+
     private FastScrollRecyclerView recyclerView;
     private ImageView settingButton;
     private ProgressDialog progressDialog;
-    private CardView cardConst, cardPierre, cardIndustrie, cardService, cardAgro;
-    private  LinearLayout linearLayout;
+    private CardView cardTubes, cardAcademy, cardGroupe, cardServices, cardProfi, cardNawafid, cardTrading, cardAltim, cardHuile;
+
     private Activity activity;
-    private boolean pole;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,16 +91,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         activity = this;
         setContentView(R.layout.activity_home2);
 
-        pole = MyPreferences.getMyBool(getApplicationContext(), "notifications_new_message_vibrate", false);
+
         Realm.init(getApplicationContext());
         initView();
         setListener();
-        populateImageHome();
+
        // search.setText("");
         contactsView.setVisibility(View.GONE);
-        if(pole)
-            populatePolePic();
-        else
+
             populateFromAd();
         try {
             initContactAdapter();
@@ -166,7 +164,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         Log.d(TAG, "onPause:KLK ");
-        pole = MyPreferences.getMyBool(getApplicationContext(), "notifications_new_message_vibrate", false);
+
         super.onPause();
     }
 
@@ -196,12 +194,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setListener() {
-        cardConst.setOnClickListener(this);
-        cardService.setOnClickListener(this);
-        cardPierre.setOnClickListener(this);
-        cardIndustrie.setOnClickListener(this);
-        cardAgro.setOnClickListener(this);
-        backPole.setOnClickListener(this);
+        cardTubes.setOnClickListener(this);
+        cardAcademy.setOnClickListener(this);
+        cardGroupe.setOnClickListener(this);
+        cardServices.setOnClickListener(this);
+        cardProfi.setOnClickListener(this);
+        cardNawafid.setOnClickListener(this);
+        cardTrading.setOnClickListener(this);
+        cardAltim.setOnClickListener(this);
+        cardHuile.setOnClickListener(this);
+        cardNawafid.setOnClickListener(this);
 
     }
 
@@ -244,16 +246,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         myrv = findViewById(R.id.recyclerview_id);
         settingButton = findViewById(R.id.setting_ics);
         handler = new HandlerHome();
-        linearLayout = findViewById(R.id.pole_linear);
-        backPole = findViewById(R.id.back_pole);
-        cardConst = findViewById(R.id.cardConst);
-        cardIndustrie = findViewById(R.id.cardIndu);
-        cardPierre = findViewById(R.id.cardPierre);
-        cardService = findViewById(R.id.cardServ);
-        cardAgro = findViewById(R.id.cardAgro);
+
+        cardTubes = findViewById(R.id.cardview_tubes);
+        cardAcademy = findViewById(R.id.cardview_academy);
+        cardGroupe = findViewById(R.id.cardview_groupe);
+        cardServices = findViewById(R.id.cardview_service);
+        cardProfi = findViewById(R.id.cardview_profi);
+        cardNawafid = findViewById(R.id.cardview_nawafid);
+        cardTrading = findViewById(R.id.cardview_trading);
+        cardAltim = findViewById(R.id.cardview_altim);
+        cardHuile = findViewById(R.id.cardview_huile);
+
         search = findViewById(R.id.search);
         contactsView = findViewById(R.id.recycler);
-        picHome = findViewById(R.id.up);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Synchronisation des contacts");
         progressDialog.setMessage("Patientez un instant...");
@@ -279,32 +285,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                boolean pole = MyPreferences.getMyBool(getApplicationContext(), "notifications_new_message_vibrate", false);
+
                 if(s.toString().length() == 0){
 
                     AnimationManager.setToInvisibleRight(contactsView);
-
-                    if(pole) {
-                        if(backPole.getVisibility()  == View.VISIBLE)
-                            AnimationManager.SetToVisibleLeft(myrv);
-                        else
-                            AnimationManager.SetToVisibleLeft(linearLayout);
-                    }
-                    else
                        AnimationManager.SetToVisibleLeft(myrv);
                 }
-                else if(s.toString().length() >  0 && (myrv.getVisibility() == View.VISIBLE || linearLayout.getVisibility() == View.VISIBLE)){
+                else if(s.toString().length() >  0 && (myrv.getVisibility() == View.VISIBLE )){
 
                     AnimationManager.SetToVisibleRight(contactsView);
 
-                    if(pole) {
 
-                        if(backPole.getVisibility()  == View.VISIBLE)
-                            AnimationManager.setToInvisibleLeft(myrv);
-                        else
-                            AnimationManager.setToInvisibleLeft(linearLayout);
-                    }
-                    else
                         AnimationManager.setToInvisibleLeft(myrv);
                 }
 
@@ -342,53 +333,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void populateFromAd(){
-        backPole.setVisibility(View.GONE);
+
        // companies = new ArrayList<>();
-        LinearLayout linearLayout = findViewById(R.id.pole_linear);
-        myrv.setVisibility(View.VISIBLE);
-        linearLayout.setVisibility(View.GONE);
-        companies = RealmManager.getCompanies();
-        GridViewAdapter myAdapter = new GridViewAdapter(HomeActivity.this,companies, activity);
-        myrv.setLayoutManager(new GridLayoutManager(HomeActivity.this,3));
+
+        //myrv.setVisibility(View.VISIBLE);
+
+        //companies = RealmManager.getCompanies();
+       // GridViewAdapter myAdapter = new GridViewAdapter(HomeActivity.this,companies, activity);
+        //myrv.setLayoutManager(new GridLayoutManager(HomeActivity.this,3));
         // myAdapter.setHasStableIds(true);
-        myrv.setAdapter(myAdapter);
-
-        /*RequestQueue requestQueue = Volley.newRequestQueue(this);
-       /* List<KeyValuePair> params = new ArrayList<>();
-        params.add(new KeyValuePair("name","Adel"));
-        params.add(new KeyValuePair("number","3"));*/
-      /*  String url = Constant.API_URL + "/company";
-
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                byte[] b4 = null;
-                try {
-                    for(int i = 0; i < response.length(); i++){
-                    JSONObject jsonObject = (JSONObject) response.get(i);
-                    companies.add(new Company(jsonObject));
-                    //String name = jsonObject.getString("name");
-                    }
-                    CSVManager.CreateRootFolder();
-                    CSVManager.saveInCSV(companies);
-                   // myrv.getRecycledViewPool().setMaxRecycledViews(R.id.cardview_id,0);
-                    GridViewAdapter myAdapter = new GridViewAdapter(HomeActivity.this,companies);
-                    myrv.setLayoutManager(new GridLayoutManager(HomeActivity.this,4));
-                   // myAdapter.setHasStableIds(true);
-                    myrv.setAdapter(myAdapter);
+       // myrv.setAdapter(myAdapter);
 
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, "onErrorResponse: " + error.toString()  );
-            }
-        });
-        requestQueue.add(jsonArrayRequest);*/
     }
 
     public void populateContact(){
@@ -427,46 +383,79 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.cardConst:
-                populateFiliale("1");
+            case R.id.cardview_tubes:
+                Intent intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","CHIALI TUBES");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+
                 break;
-            case R.id.cardPierre:
-                populateFiliale("2");
+            case R.id.cardview_academy:
+                 intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","CHIALI ACADEMIE");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
-            case R.id.cardIndu:
-                populateFiliale("3");
+            case R.id.cardview_groupe:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","GROUPE CHIALI");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
-            case R.id.cardServ:
-                populateFiliale("4");
+            case R.id.cardview_service:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","CHIALI SERVICES");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
-            case R.id.cardAgro:
-                populateFiliale("5");
+            case R.id.cardview_profi:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","CHIALI PROFIPLAST");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
 
-            case R.id.back_pole:
-                populatePolePicWithAnimation();
+            case R.id.cardview_nawafid:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","CHIALI NAWAFID");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
+            case R.id.cardview_trading:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","CHIALI TRADING");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+                break;
+            case R.id.cardview_altim:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","ALTIM");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+                break;
+            case R.id.cardview_huile:
+                intent = new Intent(getApplicationContext(), CityActivity.class);
+                intent.putExtra("company","HUILERIE");
+                // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+                break;
+
+
+
 
         }
     }
 
-    private void populateFiliale(String pole) {
-        LinearLayout linearLayout = findViewById(R.id.pole_linear);
-      //  myrv.setVisibility(View.VISIBLE);
-       // linearLayout.setVisibility(View.GONE);
 
-        AnimationManager.SetToVisibleRight(myrv);
-        AnimationManager.SetToVisibleRight(backPole);
-
-        AnimationManager.setToInvisibleLeft(linearLayout);
-
-        companies = RealmManager.getCompanies(pole);
-        GridViewAdapter myAdapter = new GridViewAdapter(HomeActivity.this,companies, activity);
-        myrv.setLayoutManager(new GridLayoutManager(HomeActivity.this,4));
-        // myAdapter.setHasStableIds(true);
-        myrv.setAdapter(myAdapter);
-
-    }
 
     /*public class HandlerHome extends Handler{
         @Override
@@ -622,15 +611,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 case Constant.DELETE_CONTACT:
                     API_Manager.deleteContact(getApplicationContext(), handler, Constant.CONTACT_FETCH);
-                    boolean pole = MyPreferences.getMyBool(getApplicationContext(), "notifications_new_message_vibrate", false);
-                    if(pole) {
-                        search.setText("");
-                        populatePolePic();
-                    }
-                    else {
+
                         search.setText("");
                         populateFromAd();
-                    }
+
                     Log.d(TAG, "handleMessagePROG: "+ progressDialog.isShowing());
                     if(progressDialog.isShowing())
                     progressDialog.dismiss();
@@ -653,61 +637,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-    private void populateImageHome(){
-        picsHome = new ArrayList<>();
-        picsHome.add("home_alpostone");
-        picsHome.add("home_btph");
-        picsHome.add("home_giryad");
-        picsHome.add("home_hta");
-        picsHome.add("home_htf");
-        picsHome.add("home_htf2");
-        picsHome.add("home_logistique");
-        picsHome.add("home_mdm");
-        picsHome.add("home_puma");
-        picsHome.add("home_sech");
-        picsHome.add("home_sodea");
 
-        int picId = getResources().getIdentifier(picsHome.get(new Random().nextInt(11)), "drawable", getPackageName());
-
-        if (picId != 0) {
-            picHome.setImageResource(picId);
-            //Glide.with(mContext).load(picId).into(holder.imageC);
-
-        }
-
-    }
 
     @Override
     protected void onResume() {
         super.onResume();
         activity = this;
-        boolean pole = MyPreferences.getMyBool(getApplicationContext(), "notifications_new_message_vibrate", false);
-        if(pole != this.pole)
-        if(search.getText().toString().length() == 0)
-        if(pole)
-            populatePolePic();
-        else
+
+
             populateFromAd();
 
-        picsHome = new ArrayList<>();
-        picsHome.add("home_alpostone");
-        picsHome.add("home_btph");
-        picsHome.add("home_giryad");
-        picsHome.add("home_hta");
-        picsHome.add("home_htf");
-        picsHome.add("home_htf2");
-        picsHome.add("home_logistique");
-        picsHome.add("home_mdm");
-        picsHome.add("home_puma");
-        picsHome.add("home_sech");
-        picsHome.add("home_sodea");
 
-        int picId = getResources().getIdentifier(picsHome.get(new Random().nextInt(11)), "drawable", getPackageName());
-
-        if (picId != 0) {
-            picHome.setImageResource(picId);
             //Glide.with(mContext).load(picId).into(holder.imageC);
-        }
+
 
 
     }
@@ -715,12 +657,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         if(search.getText().length() == 0){
-            if(backPole.getVisibility() == View.VISIBLE)
-            {
-                populatePolePicWithAnimation();
-                backPole.setVisibility(View.GONE);
-            }
-            else
+
           super.onBackPressed();
         }
         else search.setText("");
@@ -742,49 +679,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return toolbar;
     }
 
-    private void populatePolePic(){
 
-        //backPole.setVisibility(View.GONE);
-        myrv.setVisibility(View.GONE);
-        backPole.setVisibility(View.GONE);
-        linearLayout.setVisibility(View.VISIBLE);
-        ImageView imgConst = findViewById(R.id.imageConst);
-        ImageView imgConst2 = findViewById(R.id.imageConst2);
-        ImageView imgIndu = findViewById(R.id.imageIndustrie);
-        ImageView imgRock = findViewById(R.id.imagePierre);
-        ImageView imgAgri = findViewById(R.id.imageAgri);
-        ImageView imgServ = findViewById(R.id.imageService);
 
-        imgConst.setImageResource(R.drawable.desc);
-        imgConst2.setImageResource(R.drawable.pipe2);
-        imgIndu.setImageResource(R.drawable.industrie);
-        imgRock.setImageResource(R.drawable.pierre);
-        imgAgri.setImageResource(R.drawable.agri);
-        imgServ.setImageResource(R.drawable.service);
-    }
 
-    private void populatePolePicWithAnimation(){
-
-        AnimationManager.setToInvisibleRight(myrv);
-
-        AnimationManager.SetToVisibleLeft(linearLayout);
-        AnimationManager.setToInvisibleRight(backPole);
-        //backPole.setVisibility(View.GONE);
-       // myrv.setVisibility(View.GONE);
-
-       // linearLayout.setVisibility(View.VISIBLE);
-        ImageView imgConst = findViewById(R.id.imageConst);
-        ImageView imgIndu = findViewById(R.id.imageIndustrie);
-        ImageView imgRock = findViewById(R.id.imagePierre);
-        ImageView imgAgri = findViewById(R.id.imageAgri);
-        ImageView imgServ = findViewById(R.id.imageService);
-
-        imgConst.setImageResource(R.drawable.construction);
-        imgIndu.setImageResource(R.drawable.industrie);
-        imgRock.setImageResource(R.drawable.pierre);
-        imgAgri.setImageResource(R.drawable.agri);
-        imgServ.setImageResource(R.drawable.service);
-    }
 
 
 

@@ -81,6 +81,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     @Override
     public int getItemViewType(int position) {
+        if (position % 2 == 0){
+            return R.layout.list_item2;
+        }
+        else
         return R.layout.list_item;
     }
 

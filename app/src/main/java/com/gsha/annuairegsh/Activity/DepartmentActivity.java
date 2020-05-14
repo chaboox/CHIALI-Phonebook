@@ -45,7 +45,7 @@ public class DepartmentActivity extends BaseSwipeBackActivity {
         DepartmentAdapter adapter = new DepartmentAdapter(city.getDepartments(), getApplicationContext(), this);
         companyR = RealmManager.getCompanyByCode(company);
 
-        companyT.setText(companyR.getName()+ ", " + city.getCode());
+        companyT.setText(companyR.getNameAD());
 
         listView.setAdapter(adapter);
         //  listView.setFastScrollEnabled(true);

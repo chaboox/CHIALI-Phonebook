@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(this, HomeActivity.class);
         }
         else
-            intent = new Intent(this, HomeTest.class);
+            intent = new Intent(this, HomeActivity.class);
        // intent.putExtra("contacts", new ListContact(contacts));
         startActivity(intent);
        finish();

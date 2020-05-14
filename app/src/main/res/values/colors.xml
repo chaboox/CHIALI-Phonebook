@@ -17,4 +17,6 @@
     <color name="department_tag">#255372</color>
     <color name="gold">#F7D89E</color>
     <color name="red">#FF0000</color>
+    <color name="blue">#1E4297</color>
+    <color name="blue2">#1A4197</color>
 </resources>

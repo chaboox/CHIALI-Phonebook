@@ -1,6 +1,7 @@
 package com.gsha.annuairegsh.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
@@ -53,6 +54,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
     private TextView name, job, mail, number, location, voip, department, company;
     private ImageView image, close, export;
     private RelativeLayout mailLayout, numberLayout, locationLayout, voipLayout, departmentLayout, companyLayout;
+    private CardView call, sendMail;
     private Bitmap bitmap;
     private Handler handler;
 
@@ -118,6 +120,8 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
        location = findViewById(R.id.location);
        close = findViewById(R.id.close);
        export = findViewById(R.id.export);
+       call = findViewById(R.id.cardview_call);
+       sendMail = findViewById(R.id.carview_mail);
 
 
 
@@ -157,6 +161,17 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
                 ContactDetailActivity.this.startActivity(Intent.createChooser(email, "Email"));
             }
         });
+        sendMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent email = new Intent("android.intent.action.SEND");
+                email.setType("application/octet-stream");
+                email.setData(Uri.parse("mailto:"));
+                email.putExtra("android.intent.extra.EMAIL", new String[]{contact.getMail()});
+                email.setType("message/rfc822");
+                ContactDetailActivity.this.startActivity(Intent.createChooser(email, "Email"));
+            }
+        });
 
         mailLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -165,6 +180,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
                 return true;
             }
         });
+
 
         numberLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -180,7 +196,12 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
                 call();
             }
         });
-
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                call();
+            }
+        });
         voipLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -373,7 +394,10 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
             mail.setText(contact.getMail());
 
         }
-        else mailLayout.setVisibility(View.GONE);
+        else {
+            mailLayout.setVisibility(View.GONE);
+            sendMail.setVisibility(View.GONE);
+        }
 
         if(!contact.getCompany().equals("null")){
             company.setText(contact.getCompany());
@@ -397,7 +421,10 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
         if(!contact.getNumber().equals("null")){
             number.setText(contact.getNumber());
         }
-        else numberLayout.setVisibility(View.GONE);
+        else {
+            numberLayout.setVisibility(View.GONE);
+            call.setVisibility(View.GONE);
+        }
 
         if(!contact.getCity().equals("null")){
             location.setText(contact.getCity());

@@ -31,7 +31,7 @@ public class RealmManager {
     public static boolean areContactsInCache() {
         Realm realm = Realm.getDefaultInstance();
         Log.d("POPP", "areContactsInCache: " +  realm.where(Contact.class).count());
-        return realm.where(Contact.class).count() > 1000;
+        return realm.where(Contact.class).count() > 200;
     }
     //private ArrayList<Contact> cts;
 
