@@ -41,8 +41,8 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/close_shadow"
-                        android:padding="11dp"
+                        android:src="@drawable/arrows"
+                        android:padding="7dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="7dp"
                         android:id="@+id/close"
@@ -50,7 +50,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/export_shadow"
+                        android:src="@drawable/download"
                         android:padding="7dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginTop="7dp"
@@ -74,8 +74,9 @@
                         android:layout_gravity="center"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        app:civ_border_width="3dp"
 
-                        app:civ_border_color="@color/colorAccent"
+                        app:civ_border_color="@color/white"
                         android:src="@drawable/user"
                         />
                 </androidx.cardview.widget.CardView>
@@ -220,40 +221,7 @@
 
             </RelativeLayout>
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical" android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:id="@+id/location_layout">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:id="@+id/icon_location"
-                    android:src="@drawable/location_100"
-                    android:layout_centerVertical="true"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/icon_location"
-                    android:layout_marginStart="20dp"
-                    android:id="@+id/location"
-                    android:layout_centerInParent="true"
-                    android:text="SBA" />
-
-                <View
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="2px"
-                    android:layout_toEndOf="@+id/icon_location"
-                    android:layout_marginStart="20dp"
-
-                    android:background="@color/grayline"
-                    android:layout_below="@+id/location"/>
-
-
-            </RelativeLayout>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical" android:layout_width="match_parent"
@@ -321,6 +289,40 @@
 
                     android:background="@color/grayline"
                     android:layout_below="@+id/department"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:id="@+id/location_layout">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/icon_location"
+                    android:src="@drawable/buildings"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/icon_location"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/location"
+                    android:layout_centerInParent="true"
+                    android:text="38 - Bloc Administratif" />
+
+                <View
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_toEndOf="@+id/icon_location"
+                    android:layout_marginStart="20dp"
+
+                    android:background="@color/grayline"
+                    android:layout_below="@+id/location"/>
 
 
             </RelativeLayout>

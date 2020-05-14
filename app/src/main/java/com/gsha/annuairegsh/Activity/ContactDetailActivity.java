@@ -73,7 +73,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
         //contact = (Contact) intent.getSerializableExtra("contact");
         contact = RealmManager.getContactbyId(contactId);
         populateView();
-
+        addToRecent();
         initListener();
 
       //  AccountManager acoutManager = AccountManager.get(getApplicationContext()); ;
@@ -106,6 +106,23 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
                 },
                 750
         );}
+    }
+
+    private void addToRecent() {
+        String id1 = MyPreferences.getMyString(getApplicationContext(),"cash1","");
+        String id2 = MyPreferences.getMyString(getApplicationContext(),"cash2","");
+        String id3 = MyPreferences.getMyString(getApplicationContext(),"cash3","");
+        if(contact.getId().equals(id1)){}
+        else if(contact.getId().equals(id2)){
+
+            MyPreferences.saveString("cash2", id1,getApplicationContext());
+            MyPreferences.saveString("cash1", contact.getId(),getApplicationContext());
+        }
+        else {
+            MyPreferences.saveString("cash3", id2, getApplicationContext());
+            MyPreferences.saveString("cash2", id1, getApplicationContext());
+            MyPreferences.saveString("cash1", contact.getId(), getApplicationContext());
+        }
     }
 
     private void initView() {
@@ -382,7 +399,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
     }
 
     private void populateView(){
-
+        //locationLayout.setVisibility(View.GONE);
         name.setText(contact.getName());
         if(!contact.getDescription().equals("null")){
             job.setText(contact.getDescription());

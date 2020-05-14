@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -27,6 +28,7 @@ import uk.co.samuelwall.materialtaptargetprompt.extras.focals.RectanglePromptFoc
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -63,7 +65,12 @@ import java.util.regex.Pattern;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.widget.TextView;
+
 import com.google.android.gms.auth.GoogleAuthUtil;
+
+import static com.gsha.annuairegsh.Manager.PictureDecodeManager.decodeSampleBitmap;
+
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     RealmResults<Company> companies;
     ArrayList<Contact> contacts;
@@ -81,7 +88,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView settingButton;
     private ProgressDialog progressDialog;
     private CardView cardTubes, cardAcademy, cardGroupe, cardServices, cardProfi, cardNawafid, cardTrading, cardAltim, cardHuile;
-
+    private TextView name1, name2, name3, job1, job2, job3, id1, id2, id3;
+    private ImageView img1, img2, img3;
+    private CardView crd1, crd2, crd3;
     private Activity activity;
 
 
@@ -126,7 +135,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     },
                     1000
             );
-
+        populateRecent();
         checkUpdate();
         //Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
         //startActivity(intent);
@@ -159,6 +168,70 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         l.add("Fichier CSV ou vCard.");
         listOfAccountTypes.add("CSV_OR_vCARD");
         Log.d(TAG, "OMARUS " + l.toString());
+    }
+
+    private void populateRecent(){
+        String cash1 = MyPreferences.getMyString(getApplicationContext(),"cash1","");
+        String cash2 = MyPreferences.getMyString(getApplicationContext(),"cash2","");
+        String cash3 = MyPreferences.getMyString(getApplicationContext(),"cash3","");
+        if (cash1.length()>0) {
+            Contact contact = RealmManager.getContactbyId(cash1);
+            name1.setText(contact.getName());
+            job1.setText(contact.getDescription());
+            id1.setText(contact.getId());
+            String pic =  contact.getPictureC();
+            Bitmap bitmap = null;
+            if(pic != null){
+                if(!pic.equals("null")) {
+                    bitmap = decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60);
+                    img1.setImageBitmap(bitmap);
+                }
+                else {
+                    img1.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                }}
+            else {
+                img1.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+            }
+        }
+        if(cash2.length()>0){
+            Contact contact2 = RealmManager.getContactbyId(cash2);
+            name2.setText(contact2.getName());
+            job2.setText(contact2.getDescription());
+            id2.setText(contact2.getId());
+            String pic =  contact2.getPictureC();
+            Bitmap bitmap = null;
+            if(pic != null){
+                if(!pic.equals("null")) {
+                    bitmap = decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60);
+                    img2.setImageBitmap(bitmap);
+                }
+                else {
+                    img2.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                }}
+            else {
+                img2.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+            }
+        }
+
+        if(cash3.length()>0){
+            Contact contact3 = RealmManager.getContactbyId(cash3);
+            name3.setText(contact3.getName());
+            job3.setText(contact3.getDescription());
+            id3.setText(contact3.getId());
+            String pic =  contact3.getPictureC();
+            Bitmap bitmap = null;
+            if(pic != null){
+                if(!pic.equals("null") ) {
+                    bitmap = decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60);
+                    img3.setImageBitmap(bitmap);
+                }
+                else {
+                    img3.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                }}
+            else {
+                img3.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+            }
+        }
     }
 
     @Override
@@ -204,6 +277,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         cardAltim.setOnClickListener(this);
         cardHuile.setOnClickListener(this);
         cardNawafid.setOnClickListener(this);
+
+        crd1.setOnClickListener(this);
+        crd2.setOnClickListener(this);
+        crd3.setOnClickListener(this);
 
     }
 
@@ -256,6 +333,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         cardTrading = findViewById(R.id.cardview_trading);
         cardAltim = findViewById(R.id.cardview_altim);
         cardHuile = findViewById(R.id.cardview_huile);
+
+        crd1 = findViewById(R.id.cardview_r1);
+        crd2 = findViewById(R.id.cardview_r2);
+        crd3 = findViewById(R.id.cardview_r3);
+
+
+
+        name1 = findViewById(R.id.name1);
+        name2 = findViewById(R.id.name2);
+        name3 = findViewById(R.id.name3);
+        job1 = findViewById(R.id.job1);
+        job2 = findViewById(R.id.job2);
+        job3 = findViewById(R.id.job3);
+        img1 = findViewById(R.id.image1);
+        img2 = findViewById(R.id.image2);
+        img3 = findViewById(R.id.image3);
+        id1 = findViewById(R.id.id1);
+        id2 = findViewById(R.id.id2);
+        id3 = findViewById(R.id.id3);
 
         search = findViewById(R.id.search);
         contactsView = findViewById(R.id.recycler);
@@ -445,6 +541,36 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(getApplicationContext(), CityActivity.class);
                 intent.putExtra("company","HUILERIE");
                 // mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+                break;
+
+            case R.id.cardview_r1:
+                 intent = new Intent(getApplicationContext(), ContactDetailActivity.class);
+                //intent.putExtra("contact", mData.get(position));
+                intent.putExtra("id", id1.getText().toString() );
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+                break;
+
+            case R.id.cardview_r2:
+                intent = new Intent(getApplicationContext(), ContactDetailActivity.class);
+                //intent.putExtra("contact", mData.get(position));
+                intent.putExtra("id", id2.getText().toString() );
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //mContext.startActivity(intent);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
+                break;
+
+            case R.id.cardview_r3:
+                intent = new Intent(getApplicationContext(), ContactDetailActivity.class);
+                //intent.putExtra("contact", mData.get(position));
+                intent.putExtra("id", id3.getText().toString() );
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //mContext.startActivity(intent);
                 activity.startActivity(intent);
                 activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
@@ -646,7 +772,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
             populateFromAd();
-
+            populateRecent();
 
             //Glide.with(mContext).load(picId).into(holder.imageC);
 

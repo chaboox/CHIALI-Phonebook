@@ -59,7 +59,7 @@ Contact extends RealmObject implements Serializable {
             this.name = name.substring(0,1).toUpperCase() + name.substring(1);
             this.description = jsonObject.getString("description");
             this.company = jsonObject.getString("company");
-            this.city =(id).split(",")[2].substring(3);
+            this.city = jsonObject.getString("city");
             if(jsonObject.getString("number").length() >= 10 ) {
                 this.number = jsonObject.getString("number");
             }

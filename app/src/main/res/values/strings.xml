@@ -96,6 +96,7 @@
     <string name="trading">TRADING</string>
     <string name="altime">ALTIM</string>
     <string name="all">ALL</string>
+    <string name="huile">HUILERIE</string>
     <string name="recent">Récent</string>
     <string name="filial">Filiales</string>
 </resources>

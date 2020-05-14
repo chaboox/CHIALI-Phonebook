@@ -330,7 +330,8 @@ public class API_Manager {
         contacts = new ArrayList<>();
         List<KeyValuePair> params = new ArrayList<>();
         params.add(new KeyValuePair("username", username));
-        params.add(new KeyValuePair("password", new String(encodedPass)));
+        params.add(new KeyValuePair("password", password));
+        //params.add(new KeyValuePair("password", new String(encodedPass)));
         String url = Constant.API_URL + "/login";
 
         StringRequest jsonString = new StringRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), new Response.Listener<String>() {

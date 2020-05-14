@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity  {
                     mProgressView.setVisibility(View.VISIBLE);
                     String email = mEmailView.getText().toString().replaceAll("\\s","");
                     if(!email.contains("@")){
-                        email = email + "@groupe-hasnaoui.local";
+                        email = email + "@chlnet.lan";
                     }
                     API_Manager.login(email, mPasswordView.getText().toString(), getApplicationContext(), handler, Constant.DISMISS_LOADING);
                 }
