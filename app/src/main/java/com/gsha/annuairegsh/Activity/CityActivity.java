@@ -51,10 +51,14 @@ public class CityActivity extends BaseSwipeBackActivity {
             Toast.makeText(getApplicationContext(), "Filiale vide", Toast.LENGTH_SHORT).show();
             finish();
         }else {
-
-            Log.d("CITYY", "onCreate: " + company.getCities().size() + company.getCities());
-            CityAdapter adapter = new CityAdapter(company.getCities(), getApplicationContext(), this);
-            listView.setAdapter(adapter);
+            Intent intent = new Intent(CityActivity.this, DepartmentActivity.class);
+            intent.putExtra("id", company.getCities().get(0).getId());
+            intent.putExtra("company", CityActivity.companyName);
+            startActivity(intent);
+            finish();
+            //Log.d("CITYY", "onCreate: " + company.getCities().size() + company.getCities());
+            //CityAdapter adapter = new CityAdapter(company.getCities(), getApplicationContext(), this);
+           // listView.setAdapter(adapter);
         }
         //ItemHeighManger.setListViewHeightBasedOnChildren(listView);
         //listView.setFillViewport(true);

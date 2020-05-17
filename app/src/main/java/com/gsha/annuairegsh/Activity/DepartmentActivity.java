@@ -42,9 +42,9 @@ public class DepartmentActivity extends BaseSwipeBackActivity {
         city = RealmManager.getCityById(idCity);
         //city = getIntent().getStringExtra("city");
         // ListDepartment departments = (ListDepartment) getIntent().getSerializableExtra("departments");
-        DepartmentAdapter adapter = new DepartmentAdapter(city.getDepartments(), getApplicationContext(), this);
-        companyR = RealmManager.getCompanyByCode(company);
 
+        companyR = RealmManager.getCompanyByCode(company);
+        DepartmentAdapter adapter = new DepartmentAdapter(companyR.getDepartments(), getApplicationContext(), this);
         companyT.setText(companyR.getNameAD());
 
         listView.setAdapter(adapter);

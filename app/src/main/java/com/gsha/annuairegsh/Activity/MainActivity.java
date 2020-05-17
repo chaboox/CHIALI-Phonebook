@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
       //  Log.d(TAG, "onCreate:PPPL " + new RealmManager.getCityByCompany("GSHA"));
 
         //API_Manager.getContactsByNullDepartment(getApplicationContext());
-        RealmManager.showTest();
+        //RealmManager.showTest();
 
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)

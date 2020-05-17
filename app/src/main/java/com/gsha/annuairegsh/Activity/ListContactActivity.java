@@ -86,12 +86,12 @@ public class ListContactActivity extends BaseSwipeBackActivity {
             }
         });
         String company = getIntent().getStringExtra("company");
-        String city= getIntent().getStringExtra("city");
+        //String city= getIntent().getStringExtra("city");
         String department = getIntent().getStringExtra("department");
         dep.setText(department);
 
-        Log.d("RESULTT", "onCreate: " + company + "   " +  city + "  " + department );
-        contacts = RealmManager.getContactByDeparmtment(department, company, city);
+        //Log.d("RESULTT", "onCreate: " + company + "   " +  city + "  " + department );
+        contacts = RealmManager.getContactByDeparmtment(department, company);
         FastScrollRecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());

@@ -339,11 +339,11 @@ public class RealmManager {
 
     }
 
-    public static RealmResults<Contact> getContactByDeparmtment(String department, String company, String city){
+    public static RealmResults<Contact> getContactByDeparmtment(String department, String company){
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Contact> conta;
 
-             conta = realm.where(Contact.class).equalTo("company", company).equalTo("city", city).equalTo("department", department).sort("name").findAll();
+             conta = realm.where(Contact.class).equalTo("company", company).equalTo("department", department).sort("name").findAll();
 
         //  realm.close();
         return conta;
@@ -418,6 +418,7 @@ public class RealmManager {
     public ArrayList<City> getCityByCompany(String company){
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Contact> contacts = realm.where(Contact.class).equalTo("company", company).distinct("city").findAll();
+
         ArrayList<City> cities = new ArrayList<>();
         HashMap<String, String> cityDesc = getCityCompleteName();
         for(Contact c : contacts){
@@ -426,6 +427,20 @@ public class RealmManager {
       //  realm.close();
 
         return  cities;
+    }
+
+    public ArrayList<Department> getDepartmentByCompany(String company){
+        Realm realm = Realm.getDefaultInstance();
+        //RealmResults<Contact> contacts = realm.where(Contact.class).equalTo("company", company).distinct("city").findAll();
+        RealmResults<Contact> contacts = realm.where(Contact.class).equalTo("company", company).distinct("department").findAll();
+        ArrayList<Department> departments = new ArrayList<>();
+        HashMap<String, String> departmentDescription = getDescriptionDepartment();
+        for(Contact c : contacts){
+            departments.add(new Department(c.getDepartment(),departmentDescription.get(c.getDepartment())));
+        }
+        //  realm.close();
+
+        return  departments;
     }
 
     public ArrayList<Department> getDepartmentByCity(City city){
@@ -528,6 +543,23 @@ public class RealmManager {
             for(City city: cities) {
                 final City cityR = realm.copyToRealmOrUpdate(city);
                 company.getCities().add(cityR);
+            }
+
+            ArrayList<Department> departments= getDepartmentByCompany(company.getNameAD());
+
+           /* initHandler();
+            Message message = new Message();
+            Object[] objects = new Object[2];
+            objects[0] = new ListCity(cities);
+            objects[1] = company.getNameAD();
+            message.obj = objects;
+            message.what = Constant.CITY;
+            handlerRealm.sendMessage(message);*/
+
+            for(Department d: departments) {
+                final Department departmentR = realm.copyToRealmOrUpdate(d);
+                company.getDepartments().add(departmentR);
+
             }
 
         }

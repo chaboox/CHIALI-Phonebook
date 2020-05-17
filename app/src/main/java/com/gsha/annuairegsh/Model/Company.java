@@ -14,6 +14,7 @@ public class Company extends RealmObject {
     private String name, description, pole;
     private int image ;
     private RealmList<City> cities;
+    private RealmList<Department> departments;
    // private RealmList<Department> departments;
 
     public Company() {
@@ -97,6 +98,13 @@ public class Company extends RealmObject {
 
     public void setCities(RealmList<City> cities) {
         this.cities = cities;
+    }
+    public RealmList<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(RealmList<Department> departments) {
+        this.departments = departments;
     }
 
 
