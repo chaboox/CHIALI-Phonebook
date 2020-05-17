@@ -332,7 +332,7 @@ public class API_Manager {
         params.add(new KeyValuePair("username", username));
         params.add(new KeyValuePair("password", password));
         //params.add(new KeyValuePair("password", new String(encodedPass)));
-        String url = Constant.API_URL + "/login";
+        String url = Constant.API_URL + "/loginID";
 
         StringRequest jsonString = new StringRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), new Response.Listener<String>() {
             @Override

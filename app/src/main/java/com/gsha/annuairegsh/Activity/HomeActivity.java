@@ -88,8 +88,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView settingButton;
     private ProgressDialog progressDialog;
     private CardView cardTubes, cardAcademy, cardGroupe, cardServices, cardProfi, cardNawafid, cardTrading, cardAltim, cardHuile;
-    private TextView name1, name2, name3, job1, job2, job3, id1, id2, id3;
-    private ImageView img1, img2, img3;
+    private TextView name1, name2, name3, job1, job2, job3, id1, id2, id3, nameUser;
+    private ImageView img1, img2, img3, imgUser;
     private CardView crd1, crd2, crd3;
     private Activity activity;
 
@@ -136,11 +136,42 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     1000
             );
         populateRecent();
+        populateUserProfil();
         checkUpdate();
         //Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
         //startActivity(intent);
         //populateContact();
        // testFunction();
+    }
+
+    private void populateUserProfil() {
+        String secret = MyPreferences.getMyString(getApplicationContext(), Constant.SECRET, "0");
+        if (secret.length()>1) {
+            Contact contact = RealmManager.getContactbyId(secret);
+            if(contact != null){
+                nameUser.setText(contact.getName());
+                String pic =  contact.getPictureC();
+                Bitmap bitmap = null;
+                if(pic != null){
+                    if(!pic.equals("null")) {
+                        bitmap = decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60);
+                        imgUser.setImageBitmap(bitmap);
+                    }
+                    else {
+                        try {
+                            API_Manager.getPicByIdForDetailActivity(contact.getId(), getApplicationContext(), imgUser, contact);
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                    }}
+                else {
+                    try {
+                        API_Manager.getPicByIdForDetailActivity(contact.getId(), getApplicationContext(), imgUser, contact);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                }}
+        }
     }
 
     private void testFunction() {
@@ -346,12 +377,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         name1 = findViewById(R.id.name1);
         name2 = findViewById(R.id.name2);
         name3 = findViewById(R.id.name3);
+        nameUser = findViewById(R.id.name_user);
         job1 = findViewById(R.id.job1);
         job2 = findViewById(R.id.job2);
         job3 = findViewById(R.id.job3);
         img1 = findViewById(R.id.image1);
         img2 = findViewById(R.id.image2);
         img3 = findViewById(R.id.image3);
+        imgUser = findViewById(R.id.profil_pic);
         id1 = findViewById(R.id.id1);
         id2 = findViewById(R.id.id2);
         id3 = findViewById(R.id.id3);
@@ -762,6 +795,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                                 1000
                         );
                     MyPreferences.saveLong(Constant.LAST_UPDATE_TIME, System.currentTimeMillis());
+                    populateUserProfil();
                     break;
             }
         }

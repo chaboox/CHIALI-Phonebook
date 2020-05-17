@@ -18,6 +18,7 @@ import android.os.Message;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         }
         handler = new MainHandler();
         String secret = MyPreferences.getMyString(getApplicationContext(), Constant.SECRET, "0");
+        //Toast.makeText(getApplicationContext(), secret, Toast.LENGTH_LONG).show();
 
         //setContentView(R.layout.activity_main);
         //GotoCityAcitvity();

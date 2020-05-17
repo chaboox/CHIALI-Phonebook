@@ -99,9 +99,9 @@ public class LoginActivity extends AppCompatActivity  {
                 if(isConnectedToInternet()) {
                     mProgressView.setVisibility(View.VISIBLE);
                     String email = mEmailView.getText().toString().replaceAll("\\s","");
-                    if(!email.contains("@")){
-                        email = email + "@chlnet.lan";
-                    }
+                    //if(!email.contains("@")){
+                   //     email = email + "@chlnet.lan";
+                   // }
                     API_Manager.login(email, mPasswordView.getText().toString(), getApplicationContext(), handler, Constant.DISMISS_LOADING);
                 }
                 else  Toast.makeText(getApplicationContext(), "Vérifiez votre connexion internet", Toast.LENGTH_SHORT).show();
