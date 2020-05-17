@@ -26,7 +26,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.HomeTest"></activity>
+        <activity android:name=".Activity.ProfilDetailActivity"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar"/>
+        <activity android:name=".Activity.HomeTest" />
         <activity android:name=".Activity.AboutActivity" />
         <activity
             android:name=".Activity.SettingsActivity"

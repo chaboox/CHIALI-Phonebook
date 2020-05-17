@@ -74,7 +74,7 @@ Contact extends RealmObject implements Serializable {
             e.printStackTrace();
         }
     }
-    //CN=Imene AZZOUN,OU=Users,OU=SBA,OU=HTAS,DC=groupe-hasnaoui,DC=local
+
 
 
 

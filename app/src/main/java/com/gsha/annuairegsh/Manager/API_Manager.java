@@ -343,7 +343,7 @@ public class API_Manager {
                     MyPreferences.saveString(Constant.SECRET, response, context);
                     Intent intent = new Intent(context, HomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);//adam.deboosere@groupe-hasnaoui.com
+                    context.startActivity(intent);
                    // handler.sendEmptyMessage(what);
                     handler.sendEmptyMessage(Constant.FINISH);
                 }

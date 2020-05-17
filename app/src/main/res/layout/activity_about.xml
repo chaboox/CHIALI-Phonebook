@@ -21,21 +21,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Annuaire - GSH"
+        android:text="@string/annuaire_chiali"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:gravity="center"
       />
-<TextView
-    android:layout_marginTop="30dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Version 3.2.6"
-    android:textColor="@color/colorAccent"
-    android:textSize="18sp"
-    android:gravity="center"
-    android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Version 1.0"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp" />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="100dp"
@@ -75,7 +76,7 @@
         android:textColor="@color/white"
         android:gravity="center"
         android:textAlignment="center"
-        android:text="Développé par\nAdam DEBOOSÈRE\n© 2019 GSH Inc."
+        android:text="@string/d_velopp_par_nadam_deboos_re_n_2020_gc_inc"
         android:shadowColor="@color/text_shadow"
         android:shadowDx="1"
         android:shadowDy="1"

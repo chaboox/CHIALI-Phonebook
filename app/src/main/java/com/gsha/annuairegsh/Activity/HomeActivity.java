@@ -315,6 +315,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         crd1.setOnClickListener(this);
         crd2.setOnClickListener(this);
         crd3.setOnClickListener(this);
+        imgUser.setOnClickListener(this);
 
     }
 
@@ -515,8 +516,21 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.profil_pic:
+                String secret = MyPreferences.getMyString(getApplicationContext(), Constant.SECRET, "0");
+                if(secret.length()>1){
+                Intent intent2 = new Intent(getApplicationContext(), ProfilDetailActivity.class);
+                //intent.putExtra("contact", mData.get(position));
+                intent2.putExtra("id", secret);
+
+                //mContext.startActivity(intent);
+                    intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                activity.startActivity(intent2);
+                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);}
+
+                break;
             case R.id.cardview_tubes:
-                Intent intent = new Intent(getApplicationContext(), CityActivity.class);
+                 Intent intent = new Intent(getApplicationContext(), CityActivity.class);
                 intent.putExtra("company","CHIALI TUBES");
                 // mContext.startActivity(intent);
                 activity.startActivity(intent);
