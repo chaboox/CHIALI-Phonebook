@@ -35,7 +35,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
 
 
     public DepartmentAdapter(RealmList<Department> data, Context context, Activity activity) {
-        super(context, R.layout.item_department, data);
+        super(context, R.layout.item_department2, data);
         this.dataSet = data;
         this.mContext=context;
         this.activity = activity;
@@ -77,6 +77,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
 
     @Override
     public int getItemViewType(int position) {
+
         return (position);
     }
 
@@ -109,7 +110,14 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.item_department, parent, false);
+            if (position % 2 == 0){
+                convertView = inflater.inflate(R.layout.item_department, parent, false);
+            }
+            else
+                convertView = inflater.inflate(R.layout.item_department2, parent, false);
+
+
+
             viewHolder.code = (TextView) convertView.findViewById(R.id.code);
             viewHolder.description = (TextView) convertView.findViewById(R.id.description);
             viewHolder.image = (ImageView) convertView.findViewById(R.id.image);
@@ -128,8 +136,9 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
         lastPosition = position;
 
 
-        viewHolder.code.setText(userModel.getCode().toUpperCase());
-        viewHolder.description.setText(userModel.getDescription());
+        viewHolder.code.setText(userModel.getDescription());
+        viewHolder.description.setText(userModel.getCode());
+        //viewHolder.description.setText(userModel.getDescription());
        // Glide.with(getContext()).load(userModel.getImageUrl()).into(viewHolder.image);
         int picId = mContext.getResources().getIdentifier(userModel.getCode().toLowerCase(), "drawable", mContext.getPackageName());
 

@@ -23,6 +23,8 @@ import io.realm.Realm;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 import io.realm.RealmQuery;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RealmManager {
     public static Realm realM;
@@ -436,11 +438,42 @@ public class RealmManager {
         ArrayList<Department> departments = new ArrayList<>();
         HashMap<String, String> departmentDescription = getDescriptionDepartment();
         for(Contact c : contacts){
-            departments.add(new Department(c.getDepartment(),departmentDescription.get(c.getDepartment())));
+            String initial = departmentDescription.get(c.getDepartment());
+            if(initial == null) initial = initialGenerator(c.getDepartment()).toUpperCase();
+            //else if (initial.length()<2) initial = "Test";
+
+            departments.add(new Department(c.getDepartment(),initial));
         }
         //  realm.close();
 
         return  departments;
+    }
+
+    private String initialGenerator(String departement) {
+        if(departement.length()<4)
+            return departement;
+        Log.d("TTT", "initialGenerator: " + departement);
+        String[] table = new String[3];
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        int cpt = 0;
+        Matcher m1 = p.matcher(departement);
+
+        while (m1.find()) {
+
+            System.out.println(m1.group());
+            table[cpt] = m1.group();
+            cpt++;
+            if(cpt == 3) break;
+        }
+
+        switch (cpt){
+            case 1: if(table[0].length()<4){ if (table[0].length()<2) return "NR"; else return table[0];}else return table[0].substring(0,3);
+            case 2: return table[0].substring(0,1) + table[1].substring(0,2);
+            case 3: return table[0].substring(0,1) + table[1].substring(0,1) + table[2].substring(0,1);
+
+        }
+        return "NR";
+
     }
 
     public ArrayList<Department> getDepartmentByCity(City city){
@@ -451,7 +484,10 @@ public class RealmManager {
 
         HashMap<String, String> departmentDescription = getDescriptionDepartment();
         for(Contact c : contacts){
-            departments.add(new Department(c.getDepartment(),departmentDescription.get(c.getDepartment())));
+            String initial = departmentDescription.get(c.getDepartment());
+            if(initial == null) initial = initialGenerator(c.getDepartment()).toUpperCase();
+
+            departments.add(new Department(c.getDepartment(), initial));
         }
         //  realm.close();
 
@@ -460,6 +496,7 @@ public class RealmManager {
 
     private HashMap<String, String> getDescriptionDepartment() {
         HashMap<String, String> directionDescription = new HashMap<>();
+        directionDescription.put("Département Informatique", "DSI");
         directionDescription.put("APP", "Approvisionnements");
         directionDescription.put("CDF", "Centre De Formation");
         directionDescription.put("CDG", "Contrôle De Gestion");

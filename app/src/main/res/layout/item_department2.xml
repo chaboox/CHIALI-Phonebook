@@ -6,14 +6,15 @@
     app:cardCornerRadius="12dp"
     android:id="@+id/cardview2"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@color/white">
+    app:cardBackgroundColor="@color/colorPrimaryDark">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="80dp"
@@ -28,13 +29,14 @@
                 android:padding="22dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+
                 />
         </RelativeLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/colorPrimaryDark"
         android:layout_margin="10dp">
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/description"
-                android:textColor="@color/grayF"
+                android:textColor="@color/white"
                 android:text="Direction/Département Systèmes d'Information"/>
 
 
