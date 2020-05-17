@@ -27,7 +27,7 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
-                String facebookUrl = getFacebookPageURL(getApplicationContext(), "https://www.facebook.com/GroupeHasnaoui");
+                String facebookUrl = getFacebookPageURL(getApplicationContext(), "https://www.facebook.com/chiali.groupe");
                 facebookIntent.setData(Uri.parse(facebookUrl));
                 startActivity(facebookIntent);
             }
@@ -37,7 +37,7 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent linkedinIntent = new Intent(Intent.ACTION_VIEW);
-                String linkedUrl = "https://twitter.com/GSHspa";
+                String linkedUrl = "https://twitter.com/chialigroupe";
                 linkedinIntent.setData(Uri.parse(linkedUrl));
                 startActivity(linkedinIntent);
             }
@@ -47,7 +47,7 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent linkedinIntent = new Intent(Intent.ACTION_VIEW);
-                String linkedUrl ="https://www.groupe-hasnaoui.com/";
+                String linkedUrl ="https://www.groupe-chiali.com/";
                 linkedinIntent.setData(Uri.parse(linkedUrl));
                 startActivity(linkedinIntent);
             }
