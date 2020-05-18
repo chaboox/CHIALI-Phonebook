@@ -20,4 +20,5 @@ public class Constant {
     public static final int EXPORT =111;
     public static final int MAIL = 112;
     public static final int SEARCH_EXPLAIN = 113 ;
+    public static final int LONG_CLICK_COMPANY = 114 ;
 }

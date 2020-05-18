@@ -141,7 +141,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             progressDialog.show();
             handler.sendEmptyMessage(Constant.COMPANY);
         }
-        else  if(!MyPreferences.getMyBool(getApplicationContext(),"HOMESEEN", false))
+        else  if(!MyPreferences.getMyBool(getApplicationContext(),"HOMESEEN", false)){
             new java.util.Timer().schedule(
                     new java.util.TimerTask() {
                         @Override
@@ -149,6 +149,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                             handler.sendEmptyMessage(Constant.SEARCH_EXPLAIN);
                             MyPreferences.saveMyBool(getApplicationContext(), "HOMESEEN", true);
+
+
+                        }
+                    },
+                    1000
+            );}
+        else if(!MyPreferences.getMyBool(getApplicationContext(),"HOMESEEN2", false))
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+
+                            handler.sendEmptyMessage(Constant.LONG_CLICK_COMPANY);
+                            MyPreferences.saveMyBool(getApplicationContext(), "HOMESEEN2", true);
 
 
                         }
@@ -162,6 +176,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //startActivity(intent);
         //populateContact();
        // testFunction();
+        //handler.sendEmptyMessage(Constant.SEARCH_EXPLAIN);
     }
 
     private void populateUserProfil() {
@@ -1008,7 +1023,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                                         new MaterialTapTargetPrompt.Builder(HomeActivity.this)
                                                 .setTarget(R.id.setting_ics)
                                                 .setPrimaryText("Paramètre")
-                                                .setSecondaryText("Synchronisation des contacts\nExport des contacts\nRéinitialisation\nDéconnexion")
+                                                .setSecondaryText("Synchronisation des contacts\nMailing\nExport des contacts\nRéinitialisation\nDéconnexion")
                                                 .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()
                                                 {
                                                     @Override
@@ -1075,6 +1090,42 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                             })
                             .show();
                     break;
+
+
+
+                case Constant.LONG_CLICK_COMPANY:
+                    new MaterialTapTargetPrompt.Builder(HomeActivity.this)
+                            .setTarget(R.id.cardview_academy)
+                            .setPrimaryText("Mailing")
+                            .setSecondaryText("un clic long sur une filiale permet d'utiliser la fonction mailing")
+                            .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()
+                            {
+                                @Override
+                                public void onPromptStateChanged(MaterialTapTargetPrompt prompt, int state)
+                                {
+                                    if (state == MaterialTapTargetPrompt.STATE_BACK_BUTTON_PRESSED)
+                                    {
+                                        Log.d(TAG, "onPromptStateChanged: OLOL");
+                                    }
+                                    else if(state == MaterialTapTargetPrompt.STATE_DISMISSED){
+
+                                        Log.d(TAG, "onPromptStateChanged: OLOL2");
+                                    }
+                                    else if(state == MaterialTapTargetPrompt.STATE_FINISHED){
+                                        Log.d(TAG, "onPromptStateChanged: OLOL3");
+                                    }
+                                    else if(state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED){
+
+                                    }
+                                    else {
+                                        Log.d(TAG, "onPromptStateChanged: OLOL5");
+                                    }
+                                }
+                            })
+                            .show();
+                    break;
+
+
                 case Constant.SETTING_SYNC:
                     progressDialog.show();
                     handler.sendEmptyMessage(Constant.COMPANY);
