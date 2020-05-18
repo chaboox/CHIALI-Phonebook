@@ -2,10 +2,13 @@ package com.adam.annuairechiali.Activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -333,7 +336,266 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         crd2.setOnClickListener(this);
         crd3.setOnClickListener(this);
         imgUser.setOnClickListener(this);
+        cardTubes.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI TUBES");
+                                break;
 
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TUBES.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardAcademy.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI ACADEMIE");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI ACADEMIE.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardGroupe.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("GROUPE CHIALI");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI GROUPE.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardServices.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI SERVICES");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI SERVICES.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardProfi.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI PROFIPLAST");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI PROFIPLAST.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardNawafid.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI NAWAFID");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI NAWAFID.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardTrading.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI TRADING");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TRADING.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardAltim.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("ALTIM");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de ALTIM.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardHuile.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("HUILERIE");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de la HUILERIE.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+        cardTubes.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing("CHIALI TUBES");
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TUBES.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
+
+    }
+
+    private void mailing(String companyN){
+
+        Intent email = new Intent("android.intent.action.SEND");
+        email.setType("application/octet-stream");
+        email.setData(Uri.parse("mailto:"));
+        email.putExtra("android.intent.extra.EMAIL", RealmManager.getListMailsBycompany(companyN));
+        email.setType("message/rfc822");
+        startActivity(Intent.createChooser(email, "Email"));
     }
 
     private void initContactAdapter() throws UnsupportedEncodingException {
