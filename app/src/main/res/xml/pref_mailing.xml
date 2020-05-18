@@ -1,0 +1,45 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+
+
+    <!-- This preference simply launches an intent when selected. Use this UI sparingly, per
+         design guidelines. -->
+    <Preference android:title="Toutes les filiales" android:key="all_company">
+    </Preference>
+
+    <Preference android:title="CHIALI TUBES" android:key="tubes">
+    </Preference>
+
+    <Preference android:title="CHIALI ACADEMIE" android:key="academy">
+    </Preference>
+
+    <Preference android:title="GROUPE CHIALI" android:key="groupe">
+    </Preference>
+
+    <Preference android:title="CHIALI SERVICES" android:key="services">
+    </Preference>
+
+    <Preference android:title="CHIALI PROFIPLAST" android:key="profi">
+    </Preference>
+
+    <Preference android:title="CHIALI NAWAFID" android:key="nawafid">
+    </Preference>
+
+    <Preference android:title="CHIALI TRADING" android:key="trading">
+    </Preference>
+
+    <Preference android:title="ALTIM" android:key="altim">
+    </Preference>
+
+
+
+    <Preference android:title="HUILERIE" android:key="huile">
+    </Preference>
+
+
+
+
+</PreferenceScreen>

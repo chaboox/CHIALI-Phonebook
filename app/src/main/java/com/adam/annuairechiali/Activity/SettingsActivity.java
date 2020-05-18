@@ -294,17 +294,288 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_notification);
-            createActionBar("Affichage");
+            addPreferencesFromResource(R.xml.pref_mailing);
+            createActionBar("Mailing");
             setHasOptionsMenu(true);
+            Preference all = findPreference("all_company");
+            all.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailingAll();
+                                    break;
 
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+
+            Preference tubes = findPreference("tubes");
+            tubes.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("CHIALI TUBES");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TUBES.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+
+            Preference academy = findPreference("academy");
+            academy.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("CHIALI ACADEMIE");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI ACADEMIE.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+
+            Preference groupe = findPreference("groupe");
+            groupe.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("GROUPE CHIALI");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI GROUPE.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+
+            Preference service = findPreference("services");
+            service.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("CHIALI SERVICES");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI SERVICES.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+            Preference profi = findPreference("profi");
+            profi.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("CHIALI PROFIPLAST");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI PROFIPLAST.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+            Preference nawafid = findPreference("nawafid");
+            nawafid.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("CHIALI NAWAFID");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI NAWAFID.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+            Preference trading = findPreference("trading");
+            trading.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("CHIALI TRADING");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TRADING.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+            Preference altim = findPreference("altim");
+            altim.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("ALTIM");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de ALTIM.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
+            Preference huile = findPreference("huile");
+            huile.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mailing("HUILERIE");
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    break;
+                            }
+                        }
+                    };
+
+                    android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de la HUILERIE.").setPositiveButton("Continuer", dialogClickListener)
+                            .setNegativeButton("Annuler", dialogClickListener).show();
+
+                    return true;
+                }
+            });
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
             //bindPreferenceSummaryToValueBool(findPreference("notifications_new_message_vibrate"));
         }
+        private void mailing(String companyN){
 
+            Intent email = new Intent("android.intent.action.SEND");
+            email.setType("application/octet-stream");
+            email.setData(Uri.parse("mailto:"));
+            email.putExtra("android.intent.extra.EMAIL", RealmManager.getListMailsBycompany(companyN));
+            email.setType("message/rfc822");
+            startActivity(Intent.createChooser(email, "Email"));
+        }
+
+        private void mailingAll(){
+
+            Intent email = new Intent("android.intent.action.SEND");
+            email.setType("application/octet-stream");
+            email.setData(Uri.parse("mailto:"));
+            email.putExtra("android.intent.extra.EMAIL", RealmManager.getListMails());
+            email.setType("message/rfc822");
+            startActivity(Intent.createChooser(email, "Email"));
+        }
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             Log.d("OPTION", "onOptionsItemSelected: ARE YOU HERE");
