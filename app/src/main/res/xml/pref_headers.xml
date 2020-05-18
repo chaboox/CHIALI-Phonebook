@@ -1,7 +1,7 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
     <header
-        android:fragment="com.gsha.annuairegsh.Activity.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="com.adam.annuairechiali.Activity.SettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="A propos"
 
@@ -12,13 +12,13 @@
 
 
     <header
-        android:fragment="com.gsha.annuairegsh.Activity.SettingsActivity$DataSyncPreferenceFragment"
+        android:fragment="com.adam.annuairechiali.Activity.SettingsActivity$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="Synchronisation des contacts"
         />
 
     <header
-        android:fragment="com.gsha.annuairegsh.Activity.SettingsActivity$LogOutFragment"
+        android:fragment="com.adam.annuairechiali.Activity.SettingsActivity$LogOutFragment"
         android:icon="@drawable/ic_exit_to_app_black_24dp"
         android:title="Se déconnecter" />
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Annuaire GSH</string>
+    <string name="app_name">Annuaire CHIALI</string>
     <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -101,4 +101,12 @@
     <string name="filial">Filiales</string>
     <string name="d_velopp_par_nadam_deboos_re_n_2020_gc_inc">Développé par\nAdam DEBOOSÈRE\n© 2020 CHIALI Inc.</string>
     <string name="annuaire_chiali">Annuaire - CHIALI</string>
+
+    <string name="picker_box_arrows_icon">picker box arrows icon</string>
+    <string name="cell_image">cell image</string>
+    <string name="title">Direct Select for Android</string>
+    <string name="subtitle">New iOS and Android control for you and your company. Please make sure to use it properly, if you have any questions, please create an issue on our GitHub account.</string>
+    <string name="customized_picker">Here a fully customized picker with custom background and cell layout:</string>
+    <string name="picker_with_custom_bg">Here a picker with default cell but custom background:</string>
+    <string name="footer_text">by Ramotion inc.</string>
 </resources>

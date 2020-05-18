@@ -4,11 +4,11 @@ apply plugin: 'realm-android'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.gsha.annuairegsh"
+        applicationId "com.adam.annuairechiali"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 15
-        versionName "3.2.6"
+        versionCode 1
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -45,5 +45,6 @@ dependencies {
     //implementation 'com.google.android.material:material:1.0.0-beta01'
     implementation 'uk.co.samuelwall:material-tap-target-prompt:2.14.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.+'
+    implementation 'com.ramotion.directselect:direct-select:0.1.1'
     //implementation files('src/commons-lang3-3.0.jar')
 }

@@ -4,9 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ds="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimaryDark"
     tools:context=".Activity.HomeActivity"
     android:focusable="true" android:focusableInTouchMode="true">
+    <com.ramotion.directselect.DSListView
+        android:id="@+id/ds_county_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="invisible"
+        ds:picker_box_view="@id/ds_country_picker"
+        ds:scale_animations="true"
+        ds:scale_animations_factor="1.15"
+        ds:scale_animations_pivot_center="true"
+        ds:selected_index="2"
+        ds:selector_background="@drawable/ds_bg_list_selector" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -91,7 +104,28 @@
         app:cardBackgroundColor="@color/white"
 
         >
+        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fastScrollAutoHide="true"
+            app:fastScrollAutoHideDelay="1500"
+            app:fastScrollEnableThumbInactiveColor="true"
+            app:fastScrollPopupBackgroundSize="88dp"
+            app:fastScrollPopupBgColor="@color/colorAccent"
+            app:fastScrollPopupPosition="adjacent"
+            app:fastScrollPopupTextColor="@android:color/primary_text_dark"
+            app:fastScrollPopupTextSize="56sp"
+            app:fastScrollPopupTextVerticalAlignmentMode="font_metrics"
+            app:fastScrollThumbColor="@color/colorAccent"
+            app:fastScrollThumbEnabled="true"
 
+            android:clipToPadding="false"
+
+            android:paddingTop="35dp"
+            android:layout_marginTop="35dp"
+            android:visibility="visible"
+            />
 
         <LinearLayout
             android:orientation="vertical"
@@ -111,7 +145,46 @@
                     android:layout_height="70dp"
                     android:orientation="horizontal">
 
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/innerProductCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="0dp"
+                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        app:cardCornerRadius="24dp"
+                        android:layout_below="@id/head_li"
 
+                        app:cardUseCompatPadding="true">
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <EditText
+                                android:id="@+id/search"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@null"
+                                android:drawablePadding="13dp"
+                                android:hint="Rechercher un contact"
+                                android:imeOptions="actionDone"
+                                android:padding="10dp"
+                                android:shadowColor="@color/white"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/gray"
+                                android:textCursorDrawable="@drawable/cursor_white" />
+
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
 
 
                 </LinearLayout>
@@ -949,63 +1022,16 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:fastScrollAutoHide="true"
-        app:fastScrollAutoHideDelay="1500"
-        app:fastScrollEnableThumbInactiveColor="true"
-        app:fastScrollPopupBackgroundSize="88dp"
-        app:fastScrollPopupBgColor="@color/colorAccent"
-        app:fastScrollPopupPosition="adjacent"
-        app:fastScrollPopupTextColor="@android:color/primary_text_dark"
-        app:fastScrollPopupTextSize="56sp"
-        app:fastScrollPopupTextVerticalAlignmentMode="font_metrics"
-        app:fastScrollThumbColor="@color/colorAccent"
-        app:fastScrollThumbEnabled="true"
-        android:layout_below="@id/head_re"
-        android:clipToPadding="false"
 
-        android:paddingTop="35dp"
-        android:layout_marginTop="-35dp"
-        android:visibility="visible"
+
+    <com.adam.annuairechiali.Activity.AdvancedExampleCountryPickerBox
+        android:id="@+id/ds_country_picker"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+
+
+        android:layout_height="wrap_content"
         />
-    <androidx.cardview.widget.CardView
-        android:id="@+id/innerProductCard"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="0dp"
-        app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardCornerRadius="24dp"
-        android:layout_below="@id/head_li"
-
-        app:cardUseCompatPadding="true">
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@null"
-                android:drawablePadding="13dp"
-                android:hint="Rechercher un contact"
-                android:imeOptions="actionDone"
-                android:padding="10dp"
-                android:shadowColor="@color/white"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/gray"
-                android:textCursorDrawable="@drawable/cursor_white" />
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
 </RelativeLayout>
