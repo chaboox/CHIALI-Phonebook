@@ -1,12 +1,15 @@
 package com.adam.annuairechiali.Adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import androidx.cardview.widget.CardView;
 import io.realm.RealmList;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adam.annuairechiali.Activity.DepartmentActivity;
+import com.adam.annuairechiali.Activity.HomeActivity;
 import com.adam.annuairechiali.Activity.ListContactActivity;
+import com.adam.annuairechiali.Manager.RealmManager;
 import com.adam.annuairechiali.Model.Department;
 import com.adam.annuairechiali.R;
 
@@ -167,12 +172,45 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
                 activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
             }
         });
+        viewHolder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mailing(DepartmentActivity.company, userModel.getCode());
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setMessage("Rédiger un mail pour tout les collaborateurs du departement.").setPositiveButton("Continuer", dialogClickListener)
+                        .setNegativeButton("Annuler", dialogClickListener).show();
+                return true;
+            }
+        });
 
 
         //  viewHolder.info.setOnClickListener(this);
         // viewHolder.info.setTag(position);
         // Return the completed view to render on screen
         return convertView;
+    }
+    private void mailing(String companyN, String departement ){
+
+        Intent email = new Intent("android.intent.action.SEND");
+        email.setType("application/octet-stream");
+        email.setData(Uri.parse("mailto:"));
+        email.putExtra("android.intent.extra.EMAIL", RealmManager.getListMailsBycompanyAndDepartement(companyN, departement));
+        email.setType("message/rfc822");
+        activity.startActivity(Intent.createChooser(email, "Email"));
     }
 
 

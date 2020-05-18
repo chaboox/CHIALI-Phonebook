@@ -186,7 +186,33 @@ public class RealmManager {
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Contact> conta;
 
-        conta = realm.where(Contact.class).equalTo("company", company).equalTo("company", company).findAll();
+        conta = realm.where(Contact.class).equalTo("company", company).findAll();
+        //String[] mails = new String[conta.size()];
+        ArrayList<String> arrayMails = new ArrayList<>();
+        int cpt =0;
+        for(Contact c : conta){
+            if(c.getMail()!= null){
+                if(c.getMail().length()>15)
+                    arrayMails.add(new String(c.getMail()));
+            }
+        }
+
+        String[] mails = new String[arrayMails.size()];
+
+        for(String s :arrayMails){
+            mails[cpt] = arrayMails.get(cpt);
+            cpt++;
+        }
+
+        realm.close();
+        return mails;
+    }
+
+    public static String[] getListMailsBycompanyAndDepartement(String company, String departement){
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<Contact> conta;
+
+        conta = realm.where(Contact.class).equalTo("company", company).and().equalTo("department", departement).findAll();
         //String[] mails = new String[conta.size()];
         ArrayList<String> arrayMails = new ArrayList<>();
         int cpt =0;
