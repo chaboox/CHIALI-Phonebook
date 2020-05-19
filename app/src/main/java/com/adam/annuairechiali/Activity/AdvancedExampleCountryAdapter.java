@@ -1,6 +1,7 @@
 package com.adam.annuairechiali.Activity;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ public class AdvancedExampleCountryAdapter extends ArrayAdapter<AdvancedExampleC
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder holder;
-
+        Log.d("TETE", "getView: 0");
         if (null == convertView) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             assert vi != null;
@@ -53,14 +54,17 @@ public class AdvancedExampleCountryAdapter extends ArrayAdapter<AdvancedExampleC
             holder = new ViewHolder();
             holder.text = convertView.findViewById(R.id.custom_cell_text);
             holder.icon = convertView.findViewById(R.id.custom_cell_image);
+            Log.d("TETE", "getView: 1");
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
+            Log.d("TETE", "getView: 2");
         }
 
         if (null != holder) {
             holder.text.setText(items.get(position).getTitle());
             holder.icon.setImageResource(items.get(position).getIcon());
+            Log.d("TETE", "getView: 3");
         }
         return convertView;
     }

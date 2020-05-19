@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adam.annuairechiali.R;
-import com.ramotion.directselect.DSAbstractPickerBox;
+import com.adam.annuairechiali.Activity.DSAbstractPickerBox;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

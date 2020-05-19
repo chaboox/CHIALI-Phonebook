@@ -13,13 +13,7 @@
         android:layout_height="140dp"
         android:id="@+id/head_re">
 
-        <ImageView
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/degra"
-            android:visibility="gone"
-            android:scaleType="centerCrop"/></RelativeLayout>
+       </RelativeLayout>
     <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"

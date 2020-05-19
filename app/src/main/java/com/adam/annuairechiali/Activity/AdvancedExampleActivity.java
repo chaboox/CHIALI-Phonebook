@@ -7,7 +7,8 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 
 import com.adam.annuairechiali.R;
-import com.ramotion.directselect.DSListView;
+import com.adam.annuairechiali.Activity.DSListView;
+//import com.adam.annuairechiali.Activity.DSListView;
 
 import java.util.List;
 

@@ -68,7 +68,7 @@
                 android:padding="10dp"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="Departements"
+                android:text="Départements"
                 android:drawablePadding="13dp"
                 android:textStyle="bold"
                 android:background="@null"

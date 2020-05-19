@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.AdvancedExampleActivity">
 
-    <com.ramotion.directselect.DSListView
+    <com.adam.annuairechiali.Activity.DSListView
         android:id="@+id/ds_county_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +19,7 @@
         ds:selected_index="2"
         ds:selector_background="@drawable/ds_bg_list_selector" />
 
-    <com.ramotion.directselect.DSListView
+    <com.adam.annuairechiali.Activity.DSListView
         android:id="@+id/ds_sport_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:text="@string/picker_with_custom_bg" />
 
-        <com.ramotion.directselect.DSDefaultPickerBox
+        <com.adam.annuairechiali.Activity.DSDefaultPickerBox
             android:id="@+id/ds_sport_picker"
             android:layout_width="match_parent"
             android:layout_height="50dp"

@@ -14,7 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.ramotion.directselect.DSListView;
+import com.adam.annuairechiali.Activity.DSListView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -55,7 +55,7 @@ import com.adam.annuairechiali.Model.Company;
 import com.adam.annuairechiali.Model.Constant;
 import com.adam.annuairechiali.Model.Contact;
 import com.adam.annuairechiali.R;
-import com.ramotion.directselect.DSListView;
+import com.adam.annuairechiali.Activity.DSListView;
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 
 import org.json.JSONArray;
@@ -98,6 +98,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private CardView crd1, crd2, crd3;
     private Activity activity;
     private DSListView<AdvancedExampleCountryPOJO> pickerView;
+    private int filterSelected;
 
 
     @Override
@@ -119,6 +120,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         pickerView = findViewById(R.id.ds_county_list);
         pickerView.setAdapter(adapter);
         pickerView.setSelectedIndex(0);
+        filterSelected = 0;
+
 
 
         Realm.init(getApplicationContext());
@@ -1129,6 +1132,53 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 case Constant.SETTING_SYNC:
                     progressDialog.show();
                     handler.sendEmptyMessage(Constant.COMPANY);
+                    break;
+
+                case Constant.FILTER_CHANGE:
+                    if(search.getText().length() != 0){
+                        if(filterSelected != pickerView.getSelectedIndex()){
+                            filterSelected = pickerView.getSelectedIndex();
+                            switch (pickerView.getSelectedIndex()){
+
+                                case 0: contacts = RealmManager.getContactsByName(search.getText().toString());
+                                    break;
+                                case 1: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI TUBES");
+                                    break;
+                                case 2: {
+                                    contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(),"CHIALI ACADEMIE");
+                                }
+                                break;
+                                case 3: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "GROUPE CHIALI");
+                                    break;
+                                case 4: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI SERVICES");
+                                    break;
+                                case 5: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI PROFIPLAST");
+                                    break;
+                                case 6: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI NAWAFID");
+                                    break;
+                                case 7: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI TRADING");
+                                    break;
+                                case 8: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "ALTIM");
+                                    break;
+                                case 9: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(),"HUILERIE");
+                                    break;
+                                default:{
+                                    contacts = RealmManager.getContactsByName(search.getText().toString());
+
+                                }
+                            }
+                            //Toast.makeText(getApplicationContext(), pickerView.getId(),Toast.LENGTH_LONG).show();
+
+                            //API_Manager.getPicById(contacts.get(0).getId(), getApplicationContext());
+                            try {
+                                adapter = new ContactAdapter(getApplicationContext(), contacts, activity);
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
+                            adapter.notifyDataSetChanged();
+                            recyclerView.setAdapter(adapter);
+                        }
+                    }
                     break;
 
                 case Constant.COMPANY:
