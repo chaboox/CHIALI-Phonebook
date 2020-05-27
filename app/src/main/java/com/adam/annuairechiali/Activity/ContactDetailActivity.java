@@ -46,7 +46,7 @@ import static com.adam.annuairechiali.Manager.PictureDecodeManager.decodeSampleB
 
 public class ContactDetailActivity extends BaseSwipeBackActivity {
     private Contact contact;
-    private TextView name, job, mail, number, location, voip, department, company;
+    private TextView name, job, mail, number, location, voip, department, departmentI, company;
     private ImageView image, close, export;
     private RelativeLayout mailLayout, numberLayout, locationLayout, voipLayout, departmentLayout, companyLayout;
     private CardView call, sendMail;
@@ -128,6 +128,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
        mail = findViewById(R.id.mail);
        company = findViewById(R.id.company);
        department = findViewById(R.id.department);
+       departmentI = findViewById(R.id.departement_i);
        voip = findViewById(R.id.fix);
        location = findViewById(R.id.location);
        close = findViewById(R.id.close);
@@ -430,8 +431,22 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
         }
         else voipLayout.setVisibility(View.GONE);
 
+        if(!contact.getDepartmentI().equals("NR")){
+            // Log.d("VOIP", "populateView: L" + voi);
+            departmentI.setText(contact.getDepartmentI());
+
+        }
+        else departmentI.setVisibility(View.GONE);
+
         if(!contact.getNumber().equals("null")){
-            number.setText(contact.getNumber());
+            String numberS = "";
+            for(int i = 0; i < contact.getNumber().length(); i++)
+            {
+                numberS = numberS + contact.getNumber().charAt(i);
+                if(i%2 == 1)
+                    numberS = numberS + " ";
+            }
+            number.setText(numberS);
         }
         else {
             numberLayout.setVisibility(View.GONE);

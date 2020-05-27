@@ -6,6 +6,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -199,34 +200,37 @@ public class ListContactActivity extends BaseSwipeBackActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Constant.EXPORT:
-                    new MaterialTapTargetPrompt.Builder(ListContactActivity.this)
-                            .setTarget(R.id.export)
-                            .setPrimaryText("Exporter")
-                            .setSecondaryText("Exporter tous les collaborateurs du departement vers votre téléphone")
-                            .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()
-                            {
-                                @Override
-                                public void onPromptStateChanged(MaterialTapTargetPrompt prompt, int state)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        new MaterialTapTargetPrompt.Builder(ListContactActivity.this)
+                                .setTarget(R.id.export)
+                                .setFocalColour(getColor(R.color.transparent_white))
+                                .setPrimaryText("Exporter")
+                                .setSecondaryText("Exporter tous les collaborateurs du departement vers votre téléphone")
+                                .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()
                                 {
-                                    if (state == MaterialTapTargetPrompt.STATE_BACK_BUTTON_PRESSED)
+                                    @Override
+                                    public void onPromptStateChanged(MaterialTapTargetPrompt prompt, int state)
                                     {
-                                        Log.d(TAG, "onPromptStateChanged: OLOL");
+                                        if (state == MaterialTapTargetPrompt.STATE_BACK_BUTTON_PRESSED)
+                                        {
+                                            Log.d(TAG, "onPromptStateChanged: OLOL");
+                                        }
+                                        else if(state == MaterialTapTargetPrompt.STATE_DISMISSED){
+                                            Log.d(TAG, "onPromptStateChanged: OLOL2");
+                                        }
+                                        else if(state == MaterialTapTargetPrompt.STATE_FINISHED){
+                                            Log.d(TAG, "onPromptStateChanged: OLOL3");
+                                        }
+                                        else if(state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED){
+                                            Log.d(TAG, "onPromptStateChanged: OLOL4");
+                                        }
+                                        else {
+                                            Log.d(TAG, "onPromptStateChanged: OLOL5");
+                                        }
                                     }
-                                    else if(state == MaterialTapTargetPrompt.STATE_DISMISSED){
-                                        Log.d(TAG, "onPromptStateChanged: OLOL2");
-                                    }
-                                    else if(state == MaterialTapTargetPrompt.STATE_FINISHED){
-                                        Log.d(TAG, "onPromptStateChanged: OLOL3");
-                                    }
-                                    else if(state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED){
-                                        Log.d(TAG, "onPromptStateChanged: OLOL4");
-                                    }
-                                    else {
-                                        Log.d(TAG, "onPromptStateChanged: OLOL5");
-                                    }
-                                }
-                            })
-                            .show();
+                                })
+                                .show();
+                    }
                     break;
             }
         }

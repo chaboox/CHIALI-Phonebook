@@ -624,7 +624,7 @@ public class RealmManager {
             if(initial == null) initial = initialGenerator(c.getDepartment()).toUpperCase();
             //else if (initial.length()<2) initial = "Test";
 
-            departments.add(new Department(c.getDepartment(),initial));
+            departments.add(new Department(c.getDepartment(),c.getDepartmentI()));
         }
         //  realm.close();
 
@@ -669,7 +669,7 @@ public class RealmManager {
             String initial = departmentDescription.get(c.getDepartment());
             if(initial == null) initial = initialGenerator(c.getDepartment()).toUpperCase();
 
-            departments.add(new Department(c.getDepartment(), initial));
+            departments.add(new Department(c.getDepartment(), c.getDepartmentI()));
         }
         //  realm.close();
 

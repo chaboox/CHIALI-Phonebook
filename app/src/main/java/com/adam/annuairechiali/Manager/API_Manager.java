@@ -359,7 +359,7 @@ public class API_Manager {
             @Override
             public void onErrorResponse(VolleyError error) {
                 handler.sendEmptyMessage(what);
-                Toast.makeText(context, "Vérifiez votre connexion internet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Vérifiez votre connexion internet. " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonString);

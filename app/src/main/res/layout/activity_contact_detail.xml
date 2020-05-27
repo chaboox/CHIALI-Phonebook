@@ -28,7 +28,7 @@
             <LinearLayout
                 android:id="@+id/greenbglayout"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="265dp"
                 android:orientation="vertical"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/blue_100_600x600"
@@ -58,13 +58,13 @@
                         android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     app:cardElevation="8dp"
                     android:shadowDx="4"
                     android:shadowDy="4"
                     android:shadowRadius="12"
-                    app:cardCornerRadius="50dp"
+                    app:cardCornerRadius="60dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp">
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -72,12 +72,12 @@
                         android:id="@+id/image"
 
                         android:layout_gravity="center"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         app:civ_border_width="3dp"
 
                         app:civ_border_color="@color/white"
-                        android:src="@drawable/user"
+                        android:src="@drawable/user_h"
                         />
                 </androidx.cardview.widget.CardView>
 
@@ -97,6 +97,16 @@
                     android:text="Dev mobile"
                     android:layout_gravity="center"
                     android:textSize="13sp"
+                    android:textColor="@color/grayclair"
+                    />
+
+                <TextView
+                    android:id="@+id/departement_i"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DSI"
+                    android:layout_gravity="center"
+                    android:textSize="12sp"
                     android:textColor="@color/grayclair"
                     />
             </LinearLayout>

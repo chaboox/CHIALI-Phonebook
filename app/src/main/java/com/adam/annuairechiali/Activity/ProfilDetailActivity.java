@@ -66,7 +66,7 @@ public class ProfilDetailActivity  extends BaseSwipeBackActivity  {
             //contact = (Contact) intent.getSerializableExtra("contact");
             contact = RealmManager.getContactbyId(contactId);
             populateView();
-            addToRecent();
+            //addToRecent();
             initListener();
 
             //  AccountManager acoutManager = AccountManager.get(getApplicationContext()); ;

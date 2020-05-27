@@ -748,8 +748,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         case 1: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "CHIALI TUBES");
                         break;
                         case 2: {
-                            contacts = RealmManager.getContactsByNameAndFilial(s.toString(),"CHIALI ACADEMIE");
-                        }
+                                contacts = RealmManager.getContactsByNameAndFilial(s.toString(),"CHIALI ACADEMIE"); }
                         break;
                         case 3: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "GROUPE CHIALI");
                             break;

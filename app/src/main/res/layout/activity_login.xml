@@ -79,7 +79,7 @@
 
                             <EditText
                                 android:layout_width="match_parent"
-                                android:hint="Email"
+                                android:hint="Nom d'utilisateur"
                                 android:id="@+id/email"
                                 android:textSize="15sp"
                                 android:text=""
@@ -177,4 +177,18 @@
                     android:visibility="gone"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="@string/d_velopp_par_nadam_deboos_re_n_2020_gc_inc"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"/>
 </RelativeLayout>

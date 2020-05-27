@@ -13,7 +13,7 @@ Contact extends RealmObject implements Serializable {
     @PrimaryKey
     private String id;
     private String name;
-            private String  company, description, city, number, voip, department, mail, pictureC;
+            private String  company, description, city, number, voip, department, departmentI, mail, pictureC;
     private byte[]  picture;
     private boolean boss;
 
@@ -54,8 +54,8 @@ Contact extends RealmObject implements Serializable {
     public Contact(JSONObject jsonObject) {
         try {
             this.id = jsonObject.getString("id");
-            this.name = (id).split(",")[0].substring(3);
-
+           // this.name = (id).split(",")[0].substring(3);
+            this.name = jsonObject.getString("name");
             this.name = name.substring(0,1).toUpperCase() + name.substring(1);
             this.description = jsonObject.getString("description");
             this.company = jsonObject.getString("company");
@@ -66,6 +66,7 @@ Contact extends RealmObject implements Serializable {
             else  this.number = "null";
             this.voip = jsonObject.getString("voip");
             this.department = jsonObject.getString("department");
+            this.departmentI = jsonObject.getString("departmentI");
             this.mail = jsonObject.getString("mail");
             this.boss = jsonObject.getBoolean("boss");
             //this.pictureC = "null";
@@ -169,8 +170,13 @@ Contact extends RealmObject implements Serializable {
         this.department = department;
     }
 
+    public String getDepartmentI() {
+        return departmentI;
+    }
 
-
+    public void setDepartmentI(String departmentI) {
+        this.departmentI = departmentI;
+    }
 
     public String getMail() {
         return mail;
