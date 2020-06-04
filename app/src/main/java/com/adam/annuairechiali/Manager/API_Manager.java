@@ -1,5 +1,6 @@
 package com.adam.annuairechiali.Manager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,6 +11,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+
+import com.adam.annuairechiali.Activity.LoginActivity;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -59,6 +63,45 @@ public class API_Manager {
 
 
     }
+
+
+    public static void verifyUser(String username, final Context context, final Activity activity){
+        directionDescription= new HashMap<>();
+        //getDescriptionDirection();
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        contacts = new ArrayList<>();
+        List<KeyValuePair> params = new ArrayList<>();
+        params.add(new KeyValuePair("username", username));
+        //params.add(new KeyValuePair("password", new String(encodedPass)));
+        String url = Constant.API_URL + "/verifyUser";
+
+        StringRequest jsonString = new StringRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("RESS", "onResponse: " + response);
+
+                if(response.length() >3) {
+                    MyPreferences.deletePreference(Constant.SECRET);
+                    activity.startActivity(new Intent(activity, LoginActivity.class));
+                    // getActivity().finish();
+                    ActivityCompat.finishAffinity(activity);
+                }
+                else {
+
+                }
+
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonString);
+    }
+
 
     public static void getCity(String company, Context context,  final  Handler handler){
         RequestQueue requestQueue = Volley.newRequestQueue(context);

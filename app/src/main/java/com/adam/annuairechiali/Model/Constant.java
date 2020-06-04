@@ -25,4 +25,5 @@ public class Constant {
     public static final int FILTER_CHANGE = 115 ;
     public static final int IMAGE = 116;
     public static final int DISMISS_DIALOG = 117;
+    public static final int VERIFY_USER = 118;
 }

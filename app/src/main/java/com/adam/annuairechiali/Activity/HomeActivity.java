@@ -174,6 +174,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             );
         populateRecent();
         populateUserProfil();
+
+        handler.sendEmptyMessage(Constant.VERIFY_USER);
         checkUpdate();
         //Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
         //startActivity(intent);
@@ -1005,6 +1007,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
+                case Constant.VERIFY_USER:
+                    API_Manager.verifyUser(MyPreferences.getMyString(getApplicationContext(), Constant.SECRET, " "),getApplicationContext(), activity);
+                    break;
                 case Constant.SEARCH_EXPLAIN:
                     new MaterialTapTargetPrompt.Builder(HomeActivity.this)
                             .setTarget(R.id.search)
