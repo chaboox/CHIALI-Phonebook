@@ -20,6 +20,7 @@ import com.adam.annuairechiali.Manager.API_Manager;
 import com.adam.annuairechiali.Manager.RealmManager;
 import com.adam.annuairechiali.Model.Constant;
 import com.adam.annuairechiali.Model.Contact;
+import com.adam.annuairechiali.Model.ImageV;
 import com.adam.annuairechiali.R;
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 
@@ -117,17 +118,21 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
        // Log.d("PIC", "onBindViewHolder: " + mData.get(position).getName() + "     LL:" + );
 
         String pic =  mData.get(position).getPictureC();
+
         if (pic == null) pic = "null";
         if(pic .equals("none")){
             holder.imageView.setImageResource(R.drawable.user);
-            Log.d("NONE", "onBindViewHolder: " + mData.get(position).getName() );
+            Log.d("NONE", "onBindViewHolder: " + mData.get(position).getName());
         }
         else {
 
 
             if (!pic.equals("null")) {
-                Bitmap bitmap = decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60);
-                holder.imageView.setImageBitmap(bitmap);
+                Message m = new Message();
+                m.what = Constant.IMAGE;
+                m.obj = new ImageV(holder.imageView, pic);
+                handler.sendMessage(m);
+                //holder.imageView.setImageBitmap(decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60));
             } else {
                 Log.d("DKHALE", "onBindViewHolder: " + pic);
                 holder.imageView.setImageResource(R.drawable.user);
@@ -235,8 +240,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
                     }
                     break;
-                case Constant.DEPARTMENT:
 
+
+                case Constant.IMAGE:
+                    ImageV i = (ImageV) msg.obj;
+                    i.getImageView().setImageBitmap(decodeSampleBitmap(Base64.decode(i.getPic(), Base64.DEFAULT), 30, 30));
                     break;
             }
         }}

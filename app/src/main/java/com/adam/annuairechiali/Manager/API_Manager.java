@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,6 +39,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.adam.annuairechiali.Manager.PictureDecodeManager.decodeSampleBitmap;
 
@@ -332,24 +334,38 @@ public class API_Manager {
         params.add(new KeyValuePair("username", username));
         params.add(new KeyValuePair("password", password));
         //params.add(new KeyValuePair("password", new String(encodedPass)));
-        String url = Constant.API_URL + "/loginID";
+        String url = Constant.API_URL + "/login";
 
-        StringRequest jsonString = new StringRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), new Response.Listener<String>() {
+        JsonObjectRequest jsonString = new JsonObjectRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONObject response) {
                 Log.d("RESS", "onResponse: " + response);
 
-                if(response.length() > 1) {
-                    MyPreferences.saveString(Constant.SECRET, response, context);
-                    Intent intent = new Intent(context, HomeActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                   // handler.sendEmptyMessage(what);
-                    handler.sendEmptyMessage(Constant.FINISH);
-                }
-                else {
-                    handler.sendEmptyMessage(what);
-                    Toast.makeText(context, "Email ou mot de passe invalide", Toast.LENGTH_SHORT).show();
+                try {
+                    if( response.getString("username").length() > 1) {
+                        try {
+                            String username = response.getString("username");
+                            String token = response.getString("token");
+
+                        MyPreferences.saveString(Constant.SECRET, username, context);
+                        MyPreferences.saveString(Constant.TOKEN, token , context);
+                        Intent intent = new Intent(context, HomeActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                       // handler.sendEmptyMessage(what);
+                        handler.sendEmptyMessage(Constant.FINISH);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            handler.sendEmptyMessage(what);
+                            Toast.makeText(context, "Email ou mot de passe invalide", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else {
+                        handler.sendEmptyMessage(what);
+                        Toast.makeText(context, "Email ou mot de passe invalide", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
             }
@@ -406,7 +422,16 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERROR API", "onErrorResponse: " + error.toString()  );
             }
-        });
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };
         jsonArrayRequest.setRetryPolicy(new DefaultRetryPolicy(
                 60000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
@@ -451,7 +476,16 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERROR API", "onErrorResponse: " + error.toString()  );
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };
         requestQueue.add(jsonArrayRequest);
     }
 
@@ -494,7 +528,16 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERROR API", "onErrorResponse: " + error.toString());
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };
         requestQueue.add(jsonArrayRequest);
     }
 
@@ -523,7 +566,7 @@ public class API_Manager {
         List<KeyValuePair> params = new ArrayList<>();
 
         params.add(new KeyValuePair("id", URLEncoder.encode(id, "UTF-8")));
-        String url = Constant.API_URL + "/getPicById";
+        String url = Constant.  API_URL + "/getPicById";
 
         JsonObjectRequest object = new JsonObjectRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), null, new Response.Listener<JSONObject>() {
             @Override
@@ -561,7 +604,16 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("RESPPERROR", "onResponse: " + error.toString());
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };
         requestQueue.add(object);
     }
 
@@ -611,7 +663,16 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("RESPPERROR", "onResponse: " + error.toString());
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };
         requestQueue.add(object);
     }
     public static void getPicsByIds(final ArrayList<String> id, final Context context, final Handler handler, final int what) throws UnsupportedEncodingException {
@@ -718,7 +779,16 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("RESPPERROR", "onResponse: " + error.toString());
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };;
         requestQueue.add(object);
     }
   /*  private static void getDescriptionDirection(){
@@ -799,8 +869,18 @@ public class API_Manager {
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERROR", "onErrorResponse: " + error.toString());
                 Toast.makeText(context, "Mode offline !", Toast.LENGTH_SHORT).show();
+                handler.sendEmptyMessage(Constant.DISMISS_DIALOG);
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = MyPreferences.getMyString(context, Constant.TOKEN, "");
+                params.put("Authorization", "Bearer" + " " + token);
+
+                return params;
+            }
+        };
         requestQueue.add(jsonArrayRequest);
     }
 

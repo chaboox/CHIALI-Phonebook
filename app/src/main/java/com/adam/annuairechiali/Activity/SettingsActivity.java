@@ -316,7 +316,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -342,7 +342,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TUBES.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI TUBES.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -368,7 +368,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI ACADEMIE.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI ACADEMIE.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -394,7 +394,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI GROUPE.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI GROUPE.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -420,7 +420,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI SERVICES.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI SERVICES.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -445,7 +445,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI PROFIPLAST.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI PROFIPLAST.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -470,7 +470,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI NAWAFID.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI NAWAFID.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -495,7 +495,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de CHIALI TRADING.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI TRADING.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -520,7 +520,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de ALTIM.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de ALTIM.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -545,7 +545,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     };
 
                     android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setMessage("Rédiger un mail pour tout les collaborateurs de la HUILERIE.").setPositiveButton("Continuer", dialogClickListener)
+                    builder.setMessage("Rédiger un mail pour tous les collaborateurs de la HUILERIE.").setPositiveButton("Continuer", dialogClickListener)
                             .setNegativeButton("Annuler", dialogClickListener).show();
 
                     return true;
@@ -824,7 +824,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             };
 
             android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setMessage("Vous êtes sur le point d'exporter TOUT les contacts du groupe sur votre telephone?").setPositiveButton("Continuer", dialogClickListener)
+            builder.setMessage("Vous êtes sur le point d'exporter tous les contacts du groupe sur votre telephone?").setPositiveButton("Continuer", dialogClickListener)
                     .setNegativeButton("Annuler", dialogClickListener).show();
             // exportContact(contact, context);
         }

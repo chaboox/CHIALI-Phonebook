@@ -128,6 +128,7 @@ public class RealmManager {
         // Persist unmanaged objects
 //        Company company = realm.createObject(Company.class); // Create managed objects directly
         contact.setPictureC(pic);
+
         // realm.insertOrUpdate(cities);
         realm.commitTransaction();
         realm.close();

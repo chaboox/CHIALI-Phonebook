@@ -191,7 +191,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
                 };
 
                 android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setMessage("Rédiger un mail pour tout les collaborateurs du departement.").setPositiveButton("Continuer", dialogClickListener)
+                builder.setMessage("Rédiger un mail pour tous les collaborateurs du departement.").setPositiveButton("Continuer", dialogClickListener)
                         .setNegativeButton("Annuler", dialogClickListener).show();
                 return true;
             }
