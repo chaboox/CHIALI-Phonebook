@@ -81,10 +81,13 @@ public class API_Manager {
                 Log.d("RESS", "onResponse: " + response);
 
                 if(response.length() >3) {
-                    MyPreferences.deletePreference(Constant.SECRET);
-                    activity.startActivity(new Intent(activity, LoginActivity.class));
-                    // getActivity().finish();
-                    ActivityCompat.finishAffinity(activity);
+                    if(response.equals("disabled")){
+                        MyPreferences.deletePreference(Constant.SECRET);
+                        activity.startActivity(new Intent(activity, LoginActivity.class));
+                        // getActivity().finish();
+                        ActivityCompat.finishAffinity(activity);
+                    }
+
                 }
                 else {
 

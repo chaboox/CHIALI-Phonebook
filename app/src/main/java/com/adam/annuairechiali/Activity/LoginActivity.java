@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
@@ -64,6 +65,7 @@ public class LoginActivity extends AppCompatActivity  {
     private View mProgressView;
     private RelativeLayout log;
     private Handler handler;
+    private long mLastClickTime = 0;
 
 
 
@@ -92,6 +94,14 @@ public class LoginActivity extends AppCompatActivity  {
         log.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+
+
+
                 if(mEmailView.getText().toString().length() == 0 || mPasswordView.getText().toString().length() == 0){
                     Toast.makeText(getApplicationContext(), "Email ou mot de passe invalide", Toast.LENGTH_SHORT).show();
                 }

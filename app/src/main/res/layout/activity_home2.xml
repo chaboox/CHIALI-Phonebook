@@ -488,7 +488,7 @@
                                 android:textColor="@android:color/white"
                                 android:textSize="14sp"
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
@@ -557,7 +557,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
 
                                 android:layout_width="match_parent"
@@ -623,7 +623,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
 
                                 android:layout_width="match_parent"
@@ -689,7 +689,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
 
                                 android:layout_width="match_parent"
@@ -756,8 +756,10 @@
                                 android:layout_marginTop="10dp"
 
                                 android:lines="1"
+                                android:autoSizeMinTextSize="1sp"
 
                                 android:autoSizeTextType="uniform"
+
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
 
@@ -823,7 +825,7 @@
                                 android:layout_marginTop="10dp"
 
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
@@ -889,7 +891,7 @@
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
 
                                 android:layout_width="match_parent"
@@ -957,7 +959,7 @@
                                 android:layout_marginTop="10dp"
 
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
@@ -1024,7 +1026,7 @@
                                 android:layout_marginTop="10dp"
 
                                 android:lines="1"
-
+                                android:autoSizeMinTextSize="1sp"
                                 android:autoSizeTextType="uniform"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
