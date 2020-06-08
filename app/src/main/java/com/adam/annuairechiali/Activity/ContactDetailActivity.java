@@ -49,7 +49,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
     private TextView name, job, mail, number, location, voip, department, departmentI, company;
     private ImageView image, close, export;
     private RelativeLayout mailLayout, numberLayout, locationLayout, voipLayout, departmentLayout, companyLayout;
-    private CardView call, sendMail;
+    private CardView call, sendMail, sendSms;
     private Bitmap bitmap;
     private Handler handler;
 
@@ -135,6 +135,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
        export = findViewById(R.id.export);
        call = findViewById(R.id.cardview_call);
        sendMail = findViewById(R.id.carview_mail);
+       sendSms = findViewById(R.id.cardview_sms);
 
 
 
@@ -183,6 +184,13 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
                 email.putExtra("android.intent.extra.EMAIL", new String[]{contact.getMail()});
                 email.setType("message/rfc822");
                 ContactDetailActivity.this.startActivity(Intent.createChooser(email, "Email"));
+            }
+        });
+        sendSms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // String number = "12346556";  // The number on which you want to send SMS
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", contact.getNumber(), null)));
             }
         });
 
@@ -451,6 +459,7 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
         else {
             numberLayout.setVisibility(View.GONE);
             call.setVisibility(View.GONE);
+            sendSms.setVisibility(View.GONE);
         }
 
         if(!contact.getCity().equals("null")){

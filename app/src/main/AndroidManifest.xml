@@ -52,8 +52,10 @@
         <activity
             android:name="com.adam.annuairechiali.Activity.CityActivity"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
-        <activity android:name="com.adam.annuairechiali.Activity.HomeActivity" />
-        <activity android:name="com.adam.annuairechiali.Activity.Home" />
+        <activity android:name="com.adam.annuairechiali.Activity.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.adam.annuairechiali.Activity.Home"
+            android:screenOrientation="portrait"/>
         <activity android:name="com.adam.annuairechiali.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

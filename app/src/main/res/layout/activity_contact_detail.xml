@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="265dp"
                 android:orientation="vertical"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/blue_100_600x600"
 
                 >
@@ -130,7 +130,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp"
+
+
                 android:id="@+id/mail_layout"
 
                 >
@@ -147,6 +148,9 @@
                     android:layout_toEndOf="@+id/icon_mail"
                     android:layout_marginStart="20dp"
                     android:id="@+id/mail"
+                    android:autoSizeMinTextSize="1sp"
+                    android:autoSizeTextType="uniform"
+                    android:lines="1"
                     android:layout_centerInParent="true"
                     android:text="adam.deboosere@groupe-chiali.com" />
 
@@ -341,7 +345,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="10"
+                android:weightSum="15"
                 android:gravity="center"
 
                 android:orientation="horizontal">
@@ -353,7 +357,7 @@
                     android:id="@+id/cardview_call"
                     app:cardUseCompatPadding="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="5dp"
                     app:cardBackgroundColor="@color/colorPrimaryDark2"
                     >
                     <RelativeLayout
@@ -368,6 +372,30 @@
                             android:src="@drawable/communications"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="12dp"
+                    android:id="@+id/cardview_sms"
+                    app:cardUseCompatPadding="true"
+
+
+                    app:cardBackgroundColor="@color/colorPrimaryDark2"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/sms"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="70dp"
@@ -375,13 +403,12 @@
                     android:layout_weight="5"
                     app:cardUseCompatPadding="true"
                     android:id="@+id/carview_mail"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
                     app:cardBackgroundColor="@color/colorPrimaryDark2"
 
                     >   <RelativeLayout
                     android:layout_width="match_parent"
-
                     android:layout_height="wrap_content"
                     >
                     <ImageView
