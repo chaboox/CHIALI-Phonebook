@@ -309,29 +309,29 @@ public class RealmManager {
 
         RealmQuery<Contact> query = realm.where(Contact.class);
         if(!secondWord.equals("")){
-        query.like("name","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
-        conta = query.limit(13).sort("name").findAll();
+        query.like("nameN","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
+        conta = query.limit(13).sort("nameN").findAll();
         for(Contact c : conta){
             contactArray.add(c);
         }
         if(contactArray.size() < 13){
         RealmQuery<Contact> query2 = realm.where(Contact.class);
-        query2.like("name","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
-        conta = query2.limit(13 - contactArray.size()).sort("name").findAll();
+        query2.like("nameN","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
+        conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
         for(Contact c : conta){
             contactArray.add(c);
         }
         }}
         else {
-            query.like("name","" + firstWord + "*"  , Case.INSENSITIVE);
-            conta = query.limit(13).sort("name").findAll();
+            query.like("nameN","" + firstWord + "*"  , Case.INSENSITIVE);
+            conta = query.limit(13).sort("nameN").findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
             if(contactArray.size() < 13){
                 RealmQuery<Contact> query2 = realm.where(Contact.class);
-                query2.like("name","*?" + firstWord + "*"  , Case.INSENSITIVE);
-                conta = query2.limit(13 - contactArray.size()).sort("name").findAll();
+                query2.like("nameN","*?" + firstWord + "*"  , Case.INSENSITIVE);
+                conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
                 for(Contact c : conta){
                     contactArray.add(c);
                 }
@@ -360,9 +360,9 @@ public class RealmManager {
 
         if(contactArray.size() < 13){
             conta = realm.where(Contact.class).contains("description", search, Case.INSENSITIVE).not().beginGroup()
-                    .beginsWith("name", search, Case.INSENSITIVE).or()
-                    .contains("name", search, Case.INSENSITIVE)
-                    .endGroup().sort("name").limit(13 - contactArray.size()).findAll();
+                    .beginsWith("nameN", search, Case.INSENSITIVE).or()
+                    .contains("nameN", search, Case.INSENSITIVE)
+                    .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
@@ -426,33 +426,33 @@ public class RealmManager {
 
         RealmQuery<Contact> query = realm.where(Contact.class);
         if(!secondWord.equals("")){
-            query.like("name","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
+            query.like("nameN","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
             query.and().equalTo("company", filial);
-            conta = query.limit(13).sort("name").findAll();
+            conta = query.limit(13).sort("nameN").findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
             if(contactArray.size() < 13){
                 RealmQuery<Contact> query2 = realm.where(Contact.class);
-                query2.like("name","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
+                query2.like("nameN","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
                 query2.and().equalTo("company", filial);
-                conta = query2.limit(13 - contactArray.size()).sort("name").findAll();
+                conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
                 for(Contact c : conta){
                     contactArray.add(c);
                 }
             }}
         else {
-            query.like("name","" + firstWord + "*"  , Case.INSENSITIVE);
+            query.like("nameN","" + firstWord + "*"  , Case.INSENSITIVE);
             query.and().equalTo("company", filial);
-            conta = query.limit(13).sort("name").findAll();
+            conta = query.limit(13).sort("nameN").findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
             if(contactArray.size() < 13){
                 RealmQuery<Contact> query2 = realm.where(Contact.class);
-                query2.like("name","*?" + firstWord + "*"  , Case.INSENSITIVE);
+                query2.like("nameN","*?" + firstWord + "*"  , Case.INSENSITIVE);
                 query2.and().equalTo("company", filial);
-                conta = query2.limit(13 - contactArray.size()).sort("name").findAll();
+                conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
                 for(Contact c : conta){
                     contactArray.add(c);
                 }
@@ -481,9 +481,9 @@ public class RealmManager {
 
         if(contactArray.size() < 13){
             conta = realm.where(Contact.class).contains("description", search, Case.INSENSITIVE).not().beginGroup()
-                    .beginsWith("name", search, Case.INSENSITIVE).or()
-                    .contains("name", search, Case.INSENSITIVE)
-                    .endGroup().and().equalTo("company", filial).sort("name").limit(13 - contactArray.size()).findAll();
+                    .beginsWith("nameN", search, Case.INSENSITIVE).or()
+                    .contains("nameN", search, Case.INSENSITIVE)
+                    .endGroup().and().equalTo("company", filial).sort("nameN").limit(13 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }

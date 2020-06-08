@@ -63,6 +63,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -743,31 +744,32 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else {
                     //pickerView.setSelectedIndex(5);
-
+                    String sear = Normalizer.normalize(s.toString(), Normalizer.Form.NFD)
+                            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
                     switch (pickerView.getSelectedIndex()){
-                        case 0: contacts = RealmManager.getContactsByName(s.toString());
+                        case 0: contacts = RealmManager.getContactsByName(sear);
                         break;
-                        case 1: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "CHIALI TUBES");
+                        case 1: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TUBES");
                         break;
                         case 2: {
-                                contacts = RealmManager.getContactsByNameAndFilial(s.toString(),"CHIALI ACADEMIE"); }
+                                contacts = RealmManager.getContactsByNameAndFilial(sear,"CHIALI ACADEMIE"); }
                         break;
-                        case 3: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "GROUPE CHIALI");
+                        case 3: contacts = RealmManager.getContactsByNameAndFilial(sear, "GROUPE CHIALI");
                             break;
-                        case 4: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "CHIALI SERVICES");
+                        case 4: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI SERVICES");
                             break;
-                        case 5: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "CHIALI PROFIPLAST");
+                        case 5: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI PROFIPLAST");
                             break;
-                        case 6: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "CHIALI NAWAFID");
+                        case 6: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI NAWAFID");
                             break;
-                        case 7: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "CHIALI TRADING");
+                        case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
                             break;
-                        case 8: contacts = RealmManager.getContactsByNameAndFilial(s.toString(), "ALTIM");
+                        case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM");
                             break;
-                        case 9: contacts = RealmManager.getContactsByNameAndFilial(s.toString(),"HUILERIE");
+                        case 9: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
                             break;
                         default:{
-                            contacts = RealmManager.getContactsByName(s.toString());
+                            contacts = RealmManager.getContactsByName(sear);
 
                         }
                     }
@@ -1142,32 +1144,34 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     if(search.getText().length() != 0){
                         if(filterSelected != pickerView.getSelectedIndex()){
                             filterSelected = pickerView.getSelectedIndex();
+                            String sear = Normalizer.normalize(search.getText().toString(), Normalizer.Form.NFD)
+                                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
                             switch (pickerView.getSelectedIndex()){
 
-                                case 0: contacts = RealmManager.getContactsByName(search.getText().toString());
+                                case 0: contacts = RealmManager.getContactsByName(sear);
                                     break;
-                                case 1: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI TUBES");
+                                case 1: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TUBES");
                                     break;
                                 case 2: {
-                                    contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(),"CHIALI ACADEMIE");
+                                    contacts = RealmManager.getContactsByNameAndFilial(sear,"CHIALI ACADEMIE");
                                 }
                                 break;
-                                case 3: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "GROUPE CHIALI");
+                                case 3: contacts = RealmManager.getContactsByNameAndFilial(sear, "GROUPE CHIALI");
                                     break;
-                                case 4: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI SERVICES");
+                                case 4: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI SERVICES");
                                     break;
-                                case 5: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI PROFIPLAST");
+                                case 5: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI PROFIPLAST");
                                     break;
-                                case 6: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI NAWAFID");
+                                case 6: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI NAWAFID");
                                     break;
-                                case 7: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "CHIALI TRADING");
+                                case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
                                     break;
-                                case 8: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(), "ALTIM");
+                                case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM");
                                     break;
-                                case 9: contacts = RealmManager.getContactsByNameAndFilial(search.getText().toString(),"HUILERIE");
+                                case 9: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
                                     break;
                                 default:{
-                                    contacts = RealmManager.getContactsByName(search.getText().toString());
+                                    contacts = RealmManager.getContactsByName(sear);
 
                                 }
                             }

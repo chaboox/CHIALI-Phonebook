@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.Normalizer;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -12,10 +13,11 @@ public class
 Contact extends RealmObject implements Serializable {
     @PrimaryKey
     private String id;
-    private String name;
+    private String name, nameN;
             private String  company, description, city, number, voip, department, departmentI, mail, pictureC;
     private byte[]  picture;
     private boolean boss;
+
 
     public Contact(String name) {
         this.name = name;
@@ -51,12 +53,22 @@ Contact extends RealmObject implements Serializable {
 
     }
 
+    public String getNameN() {
+        return nameN;
+    }
+
+    public void setNameN(String nameN) {
+        this.nameN = nameN;
+    }
+
     public Contact(JSONObject jsonObject) {
         try {
             this.id = jsonObject.getString("id");
            // this.name = (id).split(",")[0].substring(3);
             this.name = jsonObject.getString("name");
             this.name = name.substring(0,1).toUpperCase() + name.substring(1);
+            this.nameN = Normalizer.normalize(this.name, Normalizer.Form.NFD)
+                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
             this.description = jsonObject.getString("description");
             this.company = jsonObject.getString("company");
             this.city = jsonObject.getString("city");
