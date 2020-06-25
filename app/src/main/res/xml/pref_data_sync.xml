@@ -20,7 +20,7 @@
     <Preference android:title="@string/pref_title_system_hardsync_settings" android:key="hardsync">
     </Preference>
 
-    <Preference android:title="Exporter tous les contacts vers le telephone" android:key="export_contact">
+    <Preference android:title="Exporter tous les contacts vers le téléphone" android:key="export_contact">
     </Preference>
 
 </PreferenceScreen>

@@ -247,12 +247,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String cash2 = MyPreferences.getMyString(getApplicationContext(),"cash2","");
         String cash3 = MyPreferences.getMyString(getApplicationContext(),"cash3","");
         if (cash1.length()>0) {
-            Contact contact = RealmManager.getContactbyId(cash1);
-            if(contact != null){
-            name1.setText(contact.getName());
-            job1.setText(contact.getDescription());
-            id1.setText(contact.getId());
-            String pic =  contact.getPictureC();
+            Contact contact0 = RealmManager.getContactbyId(cash1);
+            if(contact0 != null){
+            name1.setText(contact0.getName());
+
+
+
+                job1.setText(contact0.getDescription());
+                if(contact0.getDescription() .equals("null") ){  job1.setText("");}
+            id1.setText(contact0.getId());
+            String pic =  contact0.getPictureC();
             Bitmap bitmap = null;
             if(pic != null){
                 if(!pic.equals("null")) {
@@ -270,6 +274,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Contact contact2 = RealmManager.getContactbyId(cash2);
             if(contact2 != null){
             name2.setText(contact2.getName());
+                if(contact2.getDescription().equals("null"))  job2.setText("");
+                else
             job2.setText(contact2.getDescription());
             id2.setText(contact2.getId());
             String pic =  contact2.getPictureC();
@@ -291,6 +297,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Contact contact3 = RealmManager.getContactbyId(cash3);
             if(contact3 != null){
             name3.setText(contact3.getName());
+                if(contact3.getDescription().equals("null"))  job3.setText("");
+                else
             job3.setText(contact3.getDescription());
             id3.setText(contact3.getId());
             String pic =  contact3.getPictureC();
@@ -357,6 +365,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         crd2.setOnClickListener(this);
         crd3.setOnClickListener(this);
         imgUser.setOnClickListener(this);
+        nameUser.setOnClickListener(this);
         cardTubes.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -848,6 +857,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.profil_pic:
+
+            case R.id.name_user:
                 String secret = MyPreferences.getMyString(getApplicationContext(), Constant.SECRET, "0");
                 if(secret.length()>1){
                 Intent intent2 = new Intent(getApplicationContext(), ProfilDetailActivity.class);
@@ -860,6 +871,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);}
 
                 break;
+
             case R.id.cardview_tubes:
                  Intent intent = new Intent(getApplicationContext(), CityActivity.class);
                 intent.putExtra("company","CHIALI TUBES");
@@ -913,7 +925,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.cardview_altim:
                 intent = new Intent(getApplicationContext(), CityActivity.class);
-                intent.putExtra("company","ALTIM");
+                intent.putExtra("company","ALTIM INVEST");
                 // mContext.startActivity(intent);
                 activity.startActivity(intent);
                 activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
@@ -1166,7 +1178,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                                     break;
                                 case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
                                     break;
-                                case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM");
+                                case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM INVEST");
                                     break;
                                 case 9: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
                                     break;
@@ -1266,7 +1278,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         id1 = findViewById(R.id.id1);
         id2 = findViewById(R.id.id2);
         id3 = findViewById(R.id.id3);
-            populateRecent();
+        populateRecent();
 
             //Glide.with(mContext).load(picId).into(holder.imageC);
 
@@ -1277,7 +1289,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         if(search.getText().length() == 0){
-
           super.onBackPressed();
         }
         else search.setText("");

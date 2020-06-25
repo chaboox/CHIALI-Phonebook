@@ -31,7 +31,7 @@
             android:theme="@style/Theme.Swipe.Back.NoActionBar"/>
         <activity android:name="com.adam.annuairechiali.Activity.AdvancedExampleActivity"
            />
-        <activity android:name="com.adam.annuairechiali.Activity.HomeTest" />
+     
         <activity android:name="com.adam.annuairechiali.Activity.AboutActivity" />
         <activity
             android:name="com.adam.annuairechiali.Activity.SettingsActivity"
@@ -54,8 +54,7 @@
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity android:name="com.adam.annuairechiali.Activity.HomeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name="com.adam.annuairechiali.Activity.Home"
-            android:screenOrientation="portrait"/>
+
         <activity android:name="com.adam.annuairechiali.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

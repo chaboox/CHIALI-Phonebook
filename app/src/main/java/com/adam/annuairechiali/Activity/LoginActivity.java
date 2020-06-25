@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 import com.adam.annuairechiali.Manager.API_Manager;
+import com.adam.annuairechiali.Manager.MyPreferences;
 import com.adam.annuairechiali.Model.Constant;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -77,6 +78,8 @@ public class LoginActivity extends AppCompatActivity  {
         handler = new LoginHandler();
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
+
+        mEmailView.setText(MyPreferences.getMyString(getApplicationContext(), Constant.LAST_USERNAME, ""));
         log = findViewById(R.id.log);
 
         mPasswordView = (EditText) findViewById(R.id.password);

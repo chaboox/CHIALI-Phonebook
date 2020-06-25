@@ -372,6 +372,7 @@ public class API_Manager {
 
     public static void login(String username, String password, final Context context, final Handler handler, final int what){
         directionDescription= new HashMap<>();
+        final String ad2000 = username;
         //getDescriptionDirection();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         byte[] encodedPass = Base64.encode(password.getBytes(), Base64.DEFAULT);
@@ -392,14 +393,14 @@ public class API_Manager {
                         try {
                             String username = response.getString("username");
                             String token = response.getString("token");
-
-                        MyPreferences.saveString(Constant.SECRET, username, context);
-                        MyPreferences.saveString(Constant.TOKEN, token , context);
-                        Intent intent = new Intent(context, HomeActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent);
-                       // handler.sendEmptyMessage(what);
-                        handler.sendEmptyMessage(Constant.FINISH);
+                            MyPreferences.saveString(Constant.LAST_USERNAME, ad2000, context);
+                            MyPreferences.saveString(Constant.SECRET, username, context);
+                            MyPreferences.saveString(Constant.TOKEN, token , context);
+                            Intent intent = new Intent(context, HomeActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
+                            // handler.sendEmptyMessage(what);
+                            handler.sendEmptyMessage(Constant.FINISH);
                         } catch (JSONException e) {
                             e.printStackTrace();
                             handler.sendEmptyMessage(what);
@@ -421,14 +422,14 @@ public class API_Manager {
             @Override
             public void onErrorResponse(VolleyError error) {
                 handler.sendEmptyMessage(what);
-                Toast.makeText(context, "Vérifiez votre connexion internet. " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Vérifiez votre connexion internet. " , Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonString);
     }
 
     public static void getAllContacts(final Context context, final Handler handler, final int what){
-       // directionDescription= new HashMap<>();
+        // directionDescription= new HashMap<>();
         //getDescriptionDirection();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         contacts = new ArrayList<>();
@@ -447,7 +448,7 @@ public class API_Manager {
                         Contact contact = new Contact(jsonObject);
                         Contact preContact = RealmManager.getContactbyId(contact.getId());
                         if(preContact != null)
-                        contact.setPictureC(preContact.getPictureC());
+                            contact.setPictureC(preContact.getPictureC());
 
                         contacts.add(contact);
                         Log.d("APII", "onResponse: " + contact.getName());
@@ -503,7 +504,7 @@ public class API_Manager {
                         JSONObject jsonObject = (JSONObject) response.get(i);
                         Log.d("DEL", "onResponse: " + jsonObject.getString("id") );
 
-                         RealmManager.DeleteById(jsonObject.getString("id"));
+                        RealmManager.DeleteById(jsonObject.getString("id"));
 
                         //String name = jsonObject.getString("name");
                     }
@@ -561,7 +562,7 @@ public class API_Manager {
                     //CSVManager.CreateRootFolder();
                     //CSVManager.saveInCSV(companies);
                     // myrv.getRecycledViewPool().setMaxRecycledViews(R.id.cardview_id,0);
-                   new RealmManager().saveContacts(contacts);
+                    new RealmManager().saveContacts(contacts);
 
 
 
@@ -664,7 +665,7 @@ public class API_Manager {
     }
 
     public static void getPicByIdForDetailActivity(final String id, final Context context, final ImageView imageView, final Contact contact) throws UnsupportedEncodingException {
-        imageView.setImageResource(R.drawable.user);
+        //imageView.setImageResource(R.drawable.user);
         //substring
 
 
@@ -697,7 +698,7 @@ public class API_Manager {
 
                     else {
                         Log.d("DKHALE2", "onResponse: ");
-                        imageView.setImageResource(R.drawable.user);
+                      //  imageView.setImageResource(R.drawable.user);
                         RealmManager.savePic(contact, "none");
                     }
                 } catch (JSONException e) {

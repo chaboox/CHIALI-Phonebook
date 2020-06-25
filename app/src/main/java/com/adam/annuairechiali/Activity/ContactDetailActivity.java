@@ -447,14 +447,25 @@ public class ContactDetailActivity extends BaseSwipeBackActivity {
         else departmentI.setVisibility(View.GONE);
 
         if(!contact.getNumber().equals("null")){
-            String numberS = "";
-            for(int i = 0; i < contact.getNumber().length(); i++)
-            {
-                numberS = numberS + contact.getNumber().charAt(i);
-                if(i%2 == 1)
-                    numberS = numberS + " ";
-            }
-            number.setText(numberS);
+            if(contact.getNumber().length() == 9){
+                String numberS = contact.getNumber().charAt(0)+ "";
+                for(int i = 1; i < contact.getNumber().length(); i++)
+                {
+                    numberS = numberS + contact.getNumber().charAt(i);
+                    if(i%2 == 0)
+                        numberS = numberS + " ";
+                }
+                number.setText(numberS);}
+
+            else {
+                String numberS = "";
+                for(int i = 0; i < contact.getNumber().length(); i++)
+                {
+                    numberS = numberS + contact.getNumber().charAt(i);
+                    if(i%2 == 1)
+                        numberS = numberS + " ";
+                }
+                number.setText(numberS);}
         }
         else {
             numberLayout.setVisibility(View.GONE);

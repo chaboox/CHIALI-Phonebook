@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Annuaire CHIALI</string>
+    <string name="app_name">Annuaire GRP CHIALI</string>
     <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

@@ -97,6 +97,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         if(job.equals("null"))
             job ="";
         holder.job.setText(job);
+        /*
         if(mData.get(position).isBoss()) {
             holder.star.setImageResource(R.drawable.star3);
             holder.star.setVisibility(View.VISIBLE);
@@ -108,12 +109,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
           //  holder.cardView.setCardBackgroundColor(mContext.getResources().getColor(R.color.white));
             //holder.name.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
             //holder.job.setTextColor(mContext.getResources().getColor(R.color.gray3));
-        }
+        }*/
         holder.id = mData.get(position).getId();
 
         Log.d("HOLDER", "onBindViewHolder: " + holder.toString().substring(11, 18) + holder.toString());
         //holder.imageView.setImageResource(R.drawable.user);
-
         // byte[] b = s.getBytes();
        // Log.d("PIC", "onBindViewHolder: " + mData.get(position).getName() + "     LL:" + );
 

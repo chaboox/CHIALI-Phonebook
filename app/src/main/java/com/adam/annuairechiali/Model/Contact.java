@@ -72,7 +72,7 @@ Contact extends RealmObject implements Serializable {
             this.description = jsonObject.getString("description");
             this.company = jsonObject.getString("company");
             this.city = jsonObject.getString("city");
-            if(jsonObject.getString("number").length() >= 10 ) {
+            if(jsonObject.getString("number").length() >= 9 ) {
                 this.number = jsonObject.getString("number");
             }
             else  this.number = "null";

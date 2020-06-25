@@ -130,7 +130,7 @@ public class DepartmentActivity extends BaseSwipeBackActivity {
                                 .setTarget(R.id.rel)
                                 .setFocalColour(getColor(R.color.transparent_white))
                                 .setPrimaryText("Mailing")
-                                .setSecondaryText("un clic long sur un departement permet d'utiliser la fonction mailing")
+                                .setSecondaryText("un clic long sur un département permet d'utiliser la fonction mailing")
                                 .setPromptBackground(new RectanglePromptBackground())
                                 .setPromptFocal(new RectanglePromptFocal())
                                 .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()

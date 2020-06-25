@@ -45,7 +45,7 @@ import static com.adam.annuairechiali.Manager.PictureDecodeManager.decodeSampleB
 
 public class ProfilDetailActivity  extends BaseSwipeBackActivity  {
     private Contact contact;
-    private TextView name, job, mail, number, location, voip, department, company;
+    private TextView name, job, mail, number, location, voip, department, departmentI,company;
     private ImageView image, close, export;
     private RelativeLayout mailLayout, numberLayout, locationLayout, voipLayout, departmentLayout, companyLayout;
     private Bitmap bitmap;
@@ -123,6 +123,7 @@ public class ProfilDetailActivity  extends BaseSwipeBackActivity  {
             job = findViewById(R.id.job);
             image = findViewById(R.id.image);
             number = findViewById(R.id.number);
+            departmentI = findViewById(R.id.departement_i);
             mail = findViewById(R.id.mail);
             company = findViewById(R.id.company);
             department = findViewById(R.id.department);
@@ -413,12 +414,37 @@ public class ProfilDetailActivity  extends BaseSwipeBackActivity  {
             else voipLayout.setVisibility(View.GONE);
 
             if(!contact.getNumber().equals("null")){
-                number.setText(contact.getNumber());
+                if(contact.getNumber().length() == 9){
+                    String numberS = contact.getNumber().charAt(0)+ "";
+                    for(int i = 1; i < contact.getNumber().length(); i++)
+                    {
+                        numberS = numberS + contact.getNumber().charAt(i);
+                        if(i%2 == 0)
+                            numberS = numberS + " ";
+                    }
+                    number.setText(numberS);}
+
+                else {
+                String numberS = "";
+                for(int i = 0; i < contact.getNumber().length(); i++)
+                {
+                    numberS = numberS + contact.getNumber().charAt(i);
+                    if(i%2 == 1)
+                        numberS = numberS + " ";
+                }
+                number.setText(numberS);}
             }
             else {
                 numberLayout.setVisibility(View.GONE);
 
             }
+
+            if(!contact.getDepartmentI().equals("NR")){
+                // Log.d("VOIP", "populateView: L" + voi);
+                departmentI.setText(contact.getDepartmentI());
+
+            }
+            else departmentI.setVisibility(View.GONE);
 
             if(!contact.getCity().equals("null")){
                 location.setText(contact.getCity());

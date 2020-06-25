@@ -99,6 +99,15 @@
                         android:textSize="13sp"
                         android:textColor="@color/grayclair"
                         />
+                    <TextView
+                        android:id="@+id/departement_i"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="@color/grayclair"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
