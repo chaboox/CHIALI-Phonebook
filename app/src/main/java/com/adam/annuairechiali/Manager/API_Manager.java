@@ -150,7 +150,7 @@ public class API_Manager {
         params.add(new KeyValuePair("company", company));
         String url = Constant.API_URL + "/CitiesByCompany";
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new  JsonArrayRequest(Request.Method.POST, UrlGenerator.generateUrl(url, params), null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
@@ -181,7 +181,7 @@ public class API_Manager {
     }
 
     public static void getDepartement(String company, String city, Context context,  final  Handler handler){
-      //  directionDescription = new HashMap<>();
+         //directionDescription = new HashMap<>();
         //getDescriptionDirection();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         departments = new ArrayList<>();

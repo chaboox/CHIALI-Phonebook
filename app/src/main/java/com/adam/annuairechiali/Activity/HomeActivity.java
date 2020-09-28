@@ -549,7 +549,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
-                                mailing("ALTIM");
+                                mailing("ALTIM INVEST");
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -773,7 +773,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                             break;
                         case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
                             break;
-                        case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM");
+                        case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM INVEST");
                             break;
                         case 9: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
                             break;

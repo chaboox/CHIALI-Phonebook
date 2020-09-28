@@ -509,7 +509,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
-                                    mailing("ALTIM");
+                                    mailing("ALTIM INVEST");
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
