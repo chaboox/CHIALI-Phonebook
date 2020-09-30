@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private FastScrollRecyclerView recyclerView;
     private ImageView settingButton;
     private ProgressDialog progressDialog;
-    private CardView cardTubes, cardAcademy, cardGroupe, cardServices, cardProfi, cardNawafid, cardTrading, cardAltim, cardHuile;
+    private CardView cardTubes, cardAcademy, cardGroupe, cardServices, cardProfi, cardTrading, cardAltim, cardHuile;
     private TextView name1, name2, name3, job1, job2, job3, id1, id2, id3, nameUser;
     private ImageView img1, img2, img3, imgUser;
     private CardView crd1, crd2, crd3;
@@ -355,11 +355,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         cardGroupe.setOnClickListener(this);
         cardServices.setOnClickListener(this);
         cardProfi.setOnClickListener(this);
-        cardNawafid.setOnClickListener(this);
+//        cardNawafid.setOnClickListener(this);
         cardTrading.setOnClickListener(this);
         cardAltim.setOnClickListener(this);
         cardHuile.setOnClickListener(this);
-        cardNawafid.setOnClickListener(this);
+       // cardNawafid.setOnClickListener(this);
 
         crd1.setOnClickListener(this);
         crd2.setOnClickListener(this);
@@ -491,30 +491,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        cardNawafid.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case DialogInterface.BUTTON_POSITIVE:
-                                mailing("CHIALI NAWAFID");
-                                break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-
-                                break;
-                        }
-                    }
-                };
-
-                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-                builder.setMessage("Rédiger un mail pour tous les collaborateurs de CHIALI NAWAFID.").setPositiveButton("Continuer", dialogClickListener)
-                        .setNegativeButton("Annuler", dialogClickListener).show();
-                return true;
-            }
-        });
 
         cardTrading.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -673,7 +650,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         cardGroupe = findViewById(R.id.cardview_groupe);
         cardServices = findViewById(R.id.cardview_service);
         cardProfi = findViewById(R.id.cardview_profi);
-        cardNawafid = findViewById(R.id.cardview_nawafid);
+        //cardNawafid = findViewById(R.id.cardview_nawafid);
         cardTrading = findViewById(R.id.cardview_trading);
         cardAltim = findViewById(R.id.cardview_altim);
         cardHuile = findViewById(R.id.cardview_huile);
@@ -909,13 +886,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
                 break;
 
-            case R.id.cardview_nawafid:
-                intent = new Intent(getApplicationContext(), CityActivity.class);
-                intent.putExtra("company","CHIALI NAWAFID");
-                // mContext.startActivity(intent);
-                activity.startActivity(intent);
-                activity.overridePendingTransition(R.anim.fade_in_left, R.anim.fade_out_left);
-                break;
+
             case R.id.cardview_trading:
                 intent = new Intent(getApplicationContext(), CityActivity.class);
                 intent.putExtra("company","CHIALI TRADING");

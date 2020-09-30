@@ -151,6 +151,7 @@
                     android:autoSizeMinTextSize="1sp"
                     android:autoSizeTextType="uniform"
                     android:lines="1"
+
                     android:layout_centerInParent="true"
                     android:text="adam.deboosere@groupe-chiali.com" />
 

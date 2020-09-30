@@ -417,8 +417,8 @@
 
                 <androidx.gridlayout.widget.GridLayout
                     android:id="@+id/mainGrid"
-                    app:columnCount="3"
-                    app:rowCount="3"
+                    app:columnCount="2"
+                    app:rowCount="4"
                     app:alignmentMode="alignMargins"
                     app:columnOrderPreserved="false"
                     android:background="@color/white"
@@ -453,7 +453,7 @@
                             android:layout_height="match_parent">
                             <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="14dp"
                             android:orientation="vertical"
                             android:weightSum="10"
                             android:layout_width="wrap_content"
@@ -477,7 +477,7 @@
                                 android:orientation="horizontal"
                                 />
                             <ImageView
-                                android:src="@drawable/pipe6"
+                                android:src="@drawable/tubes_ban"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_width="0dp"
                                 android:layout_weight="6"
@@ -489,21 +489,7 @@
 
 
                         </LinearLayout>
-                            <TextView
-                                android:text="@string/tubes"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/white"
-                                android:textSize="14sp"
-                                android:lines="1"
-                                android:autoSizeMinTextSize="1sp"
-                                android:autoSizeTextType="uniform"
-                                android:textStyle="bold"
-                                android:layout_alignParentBottom="true"
-
-                                android:layout_marginBottom="7dp"
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" /></RelativeLayout>
+                          </RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>
@@ -527,7 +513,7 @@
                             android:layout_height="match_parent">
                             <LinearLayout
                                 android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_margin="16dp"
+                                android:layout_margin="14dp"
                                 android:orientation="vertical"
                                 android:weightSum="10"
                                 android:layout_width="wrap_content"
@@ -550,7 +536,7 @@
                                     android:orientation="horizontal"
                                     />
                                 <ImageView
-                                    android:src="@drawable/graduated"
+                                    android:src="@drawable/academy_ban"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_width="0dp"
                                     android:layout_weight="6"
@@ -561,20 +547,7 @@
 
 
                             </LinearLayout>
-                            <TextView
-                                android:text="@string/academy"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/white"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:lines="1"
-                                android:autoSizeMinTextSize="1sp"
-                                android:autoSizeTextType="uniform"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="7dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+
                         </RelativeLayout>
 
 
@@ -599,7 +572,7 @@
                             android:layout_height="match_parent">
                             <LinearLayout
                                 android:layout_gravity="center_horizontal|center_vertical"
-                                android:layout_margin="16dp"
+                                android:layout_margin="14dp"
                                 android:orientation="vertical"
                                 android:weightSum="10"
                                 android:layout_width="wrap_content"
@@ -622,7 +595,7 @@
                                     android:orientation="horizontal"
                                     />
                                 <ImageView
-                                    android:src="@drawable/tie"
+                                    android:src="@drawable/groupe_ban"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_width="0dp"
                                     android:layout_weight="6"
@@ -633,21 +606,7 @@
 
 
                             </LinearLayout>
-                            <TextView
-                                android:text="@string/groupe"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/white"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:lines="1"
-                                android:autoSizeMinTextSize="1sp"
-                                android:autoSizeTextType="uniform"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="7dp"
 
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
                         </RelativeLayout>
 
 
@@ -671,7 +630,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"> <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="14dp"
                             android:orientation="vertical"
                             android:weightSum="10"
                             android:layout_width="wrap_content"
@@ -694,7 +653,7 @@
                                 android:orientation="horizontal"
                                 />
                             <ImageView
-                                android:src="@drawable/hammer"
+                                android:src="@drawable/service_ban"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_width="0dp"
                                 android:layout_weight="6"
@@ -704,20 +663,7 @@
 
 
 
-                        </LinearLayout> <TextView
-                            android:text="@string/service"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:lines="1"
-                            android:autoSizeMinTextSize="1sp"
-                            android:autoSizeTextType="uniform"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="7dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" /></RelativeLayout>
+                        </LinearLayout> </RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>
@@ -739,7 +685,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">    <LinearLayout
                         android:layout_gravity="center_horizontal|center_vertical"
-                        android:layout_margin="16dp"
+                        android:layout_margin="14dp"
                         android:orientation="vertical"
                         android:weightSum="10"
                         android:layout_width="wrap_content"
@@ -762,7 +708,7 @@
                             android:orientation="horizontal"
                             />
                         <ImageView
-                            android:src="@drawable/door"
+                            android:src="@drawable/profi_ban"
                             android:layout_gravity="center_horizontal"
                             android:layout_width="0dp"
                             android:layout_weight="6"
@@ -772,93 +718,8 @@
 
 
 
-                    </LinearLayout> <TextView
-                        android:text="@string/profiplast"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"
+                    </LinearLayout></RelativeLayout>
 
-                        android:lines="1"
-                        android:autoSizeMinTextSize="1sp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="7dp"
-                        android:autoSizeTextType="uniform"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" /></RelativeLayout>
-
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        app:layout_columnWeight="1"
-                        app:layout_rowWeight="1"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
-                        android:id="@+id/cardview_nawafid"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
-                        android:outlineAmbientShadowColor="@color/colorPrimary"
-
-                        >
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">  <LinearLayout
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
-                            android:orientation="vertical"
-                            android:weightSum="10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="2" />                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="6"
-                            android:weightSum="10"
-                            android:orientation="horizontal"
-                            >
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="2"
-                                android:layout_height="wrap_content"
-
-                                android:orientation="horizontal"
-                                />
-                            <ImageView
-                                android:src="@drawable/window"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_width="0dp"
-                                android:layout_weight="6"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-
-
-
-                        </LinearLayout>       <TextView
-                            android:text="@string/nawafid"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="7dp"
-                            android:lines="1"
-                            android:autoSizeMinTextSize="1sp"
-                            android:autoSizeTextType="uniform"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" /></RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>
@@ -882,7 +743,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">   <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="14dp"
                             android:orientation="vertical"
                             android:weightSum="10"
                             android:layout_width="wrap_content"
@@ -890,7 +751,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="2" />                    <LinearLayout
+                                android:layout_weight="2" />             <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="6"
@@ -905,7 +766,7 @@
                                 android:orientation="horizontal"
                                 />
                             <ImageView
-                                android:src="@drawable/sale"
+                                android:src="@drawable/trading_ban"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_width="0dp"
                                 android:layout_weight="6"
@@ -915,20 +776,7 @@
 
 
 
-                        </LinearLayout>  <TextView
-                            android:text="@string/trading"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:lines="1"
-                            android:autoSizeMinTextSize="1sp"
-                            android:autoSizeTextType="uniform"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="7dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" /></RelativeLayout>
+                        </LinearLayout> </RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>
@@ -952,7 +800,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">      <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="14dp"
                             android:orientation="vertical"
                             android:weightSum="10"
                             android:layout_width="wrap_content"
@@ -975,7 +823,7 @@
                                 android:orientation="horizontal"
                                 />
                             <ImageView
-                                android:src="@drawable/farm"
+                                android:src="@drawable/altim_ban"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_width="0dp"
                                 android:layout_weight="6"
@@ -985,20 +833,7 @@
 
 
                         </LinearLayout>
-                            <TextView
-                                android:text="@string/altime"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/white"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="7dp"
-                                android:lines="1"
-                                android:autoSizeMinTextSize="1sp"
-                                android:autoSizeTextType="uniform"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" /></RelativeLayout>
+                          </RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>
@@ -1022,7 +857,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">   <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="14dp"
                             android:orientation="vertical"
                             android:weightSum="10"
                             android:layout_width="wrap_content"
@@ -1045,7 +880,7 @@
                                 android:orientation="horizontal"
                                 />
                             <ImageView
-                                android:src="@drawable/food"
+                                android:src="@drawable/huile_ban"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_width="0dp"
                                 android:layout_weight="6"
@@ -1055,20 +890,7 @@
 
 
 
-                        </LinearLayout>  <TextView
-                            android:text="@string/huile"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="7dp"
-                            android:lines="1"
-                            android:autoSizeMinTextSize="1sp"
-                            android:autoSizeTextType="uniform"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" /></RelativeLayout>
+                        </LinearLayout>  </RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>

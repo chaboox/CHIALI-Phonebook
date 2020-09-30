@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1E4297</color>
-    <color name="colorPrimaryDark">#183C8C</color>
-    <color name="colorPrimaryDark2">#FF5B5A</color>
-    <color name="colorAccent">#FF5B5A</color>
+    <color name="colorPrimary">#1e2e52</color>
+    <color name="colorPrimaryDark">#1e2e52</color>
+    <color name="colorPrimaryDark2">#eb2227 </color>
+    <color name="colorAccent">#eb2227</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="text_shadow">#AE000000</color>
@@ -25,4 +25,8 @@
     <color name="picker_box_bg">#ffffff</color>
     <color name="ds_list_bg">#ffffff</color>
     <color name="picker_list_text">#232323</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="transparent30">#3BFFFFFF</color>
+    <color name="transparent10">#ADFFFFFF</color>
+
 </resources>
