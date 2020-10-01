@@ -60,9 +60,19 @@
             android:id="@+id/job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Controleur Gestion"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"/>
+
+        <TextView
+            android:visibility="gone"
+
+            android:id="@+id/company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHIALI TUBES"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"/>
 
     </LinearLayout>
 <ImageView

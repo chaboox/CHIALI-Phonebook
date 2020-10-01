@@ -40,6 +40,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.adam.annuairechiali.Adapter.ContactCAdapter;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -87,7 +88,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private String company;
     private String city;
     private EditText search;
-    private ContactAdapter adapter;
+    private ContactCAdapter adapter;
     private ArrayList<String> picsHome ;
 
     private FastScrollRecyclerView recyclerView;
@@ -618,7 +619,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
          recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        adapter = new ContactAdapter(getApplicationContext(), contacts, this);
+        adapter = new ContactCAdapter(getApplicationContext(), contacts, this);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration itemDecoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
         itemDecoration.setDrawable(getResources().getDrawable(R.drawable.list_divider));
@@ -721,7 +722,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 if(s.toString().length() == 0) {
                     contacts = null;
                     try {
-                        adapter = new ContactAdapter(getApplicationContext(), new ArrayList<Contact>(), activity);
+                        adapter = new ContactCAdapter(getApplicationContext(), new ArrayList<Contact>(), activity);
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
@@ -763,7 +764,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                     //API_Manager.getPicById(contacts.get(0).getId(), getApplicationContext());
                     try {
-                        adapter = new ContactAdapter(getApplicationContext(), contacts, activity);
+                        adapter = new ContactCAdapter(getApplicationContext(), contacts, activity);
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
@@ -1162,7 +1163,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                             //API_Manager.getPicById(contacts.get(0).getId(), getApplicationContext());
                             try {
-                                adapter = new ContactAdapter(getApplicationContext(), contacts, activity);
+                                adapter = new ContactCAdapter(getApplicationContext(), contacts, activity);
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }

@@ -63,6 +63,14 @@
             android:text=""
             android:textColor="@color/grayclair"
             android:textSize="16sp"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHIALI TUBES"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
 
     </LinearLayout>
 <ImageView
