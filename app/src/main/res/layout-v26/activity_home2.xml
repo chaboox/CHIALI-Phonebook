@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ds="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
+
     tools:context=".Activity.HomeActivity"
     android:focusable="true" android:focusableInTouchMode="true">
+
     <com.adam.annuairechiali.Activity.DSListView
         android:id="@+id/ds_county_list"
         android:layout_width="match_parent"
@@ -26,14 +28,14 @@
         android:layout_height="140dp"
         android:id="@+id/head_re">
 
-       </RelativeLayout>
+    </RelativeLayout>
 
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="9dp"
         android:id="@+id/setting_ics"
-        android:src="@drawable/setting_tr_"
+        android:src="@drawable/setting_new"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"/>
@@ -48,7 +50,7 @@
             android:padding="9dp"
             android:layout_alignParentStart="true"
             android:src="@drawable/user"
-            app:civ_circle_background_color="@color/white"
+            app:civ_circle_background_color="@color/colorPrimaryDark"
             android:id="@+id/profil_pic"
 
             app:civ_border_width="1dp"
@@ -63,7 +65,7 @@
                 android:text=""
                 android:textStyle="bold"
                 android:layout_marginStart="6dp"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
 
                 android:layout_centerVertical="true"
@@ -95,9 +97,16 @@
         app:cardElevation="0dp"
 
         app:cardCornerRadius="40dp"
-        app:cardBackgroundColor="@color/white"
+
+        app:cardBackgroundColor="@color/colorPrimary"
 
         >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/colorPrimaryDark"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="40dp"/>
         <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
@@ -147,7 +156,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginTop="0dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="24dp"
                         android:layout_below="@id/head_li"
 
@@ -171,7 +180,7 @@
                                 android:padding="10dp"
                                 android:shadowColor="@color/white"
                                 android:singleLine="true"
-                                android:textColor="@color/white"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textColorHint="@color/gray"
                                 android:textCursorDrawable="@drawable/cursor_white" />
 
@@ -193,6 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/recent"
+                    android:textColor="@color/white"
                     android:layout_marginStart="18dp"
                     android:layout_marginBottom="5dp"/>
 
@@ -212,7 +222,7 @@
                         android:layout_marginStart="16dp"
                         app:cardBackgroundColor="@color/colorPrimaryDark2"
                         app:cardElevation="2dp"
-                        app:cardCornerRadius="12dp"
+                        app:cardCornerRadius="5dp"
                         app:cardUseCompatPadding="true">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -224,7 +234,7 @@
                                 android:layout_width="55dp"
                                 android:layout_height="55dp"
                                 android:id="@+id/image1"
-                                android:src="@drawable/adam"
+                                android:src="@drawable/logo_s"
                                 app:civ_circle_background_color="@color/white"
                                 app:civ_border_width="1dp"
                                 app:civ_border_color="@color/white"/>
@@ -274,7 +284,7 @@
 
                         app:cardBackgroundColor="@color/colorPrimaryDark2"
                         app:cardElevation="2dp"
-                        app:cardCornerRadius="12dp"
+                        app:cardCornerRadius="5dp"
                         app:cardUseCompatPadding="true">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -335,7 +345,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/cardview_r3"
                         app:cardBackgroundColor="@color/colorPrimaryDark2"
-                        app:cardCornerRadius="12dp"
+                        app:cardCornerRadius="5dp"
                         app:cardElevation="2dp"
 
                         app:cardUseCompatPadding="true">
@@ -412,6 +422,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/filial"
                     android:layout_marginStart="18dp"
+                    android:textColor="@color/white"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="5dp"/>
 
@@ -421,16 +432,15 @@
                     android:rowCount="4"
                     android:alignmentMode="alignMargins"
                     android:columnOrderPreserved="false"
-                    android:background="@color/white"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="2dp"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
-                    
+
                     android:layout_marginBottom="40dp"
                     >
-
 
 
                     <androidx.cardview.widget.CardView
@@ -441,14 +451,75 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
-                        android:id="@+id/cardview_tubes"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        android:id="@+id/cardview_groupe"
+
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
                         android:outlineAmbientShadowColor="@color/colorPrimary"
-                        
+
+                        >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
+                        <LinearLayout
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="14dp"
+                            android:orientation="vertical"
+                            android:weightSum="10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2" />                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="6"
+                            android:weightSum="10"
+                            android:orientation="horizontal"
+                            >
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="2"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="horizontal"
+                                />
+                            <ImageView
+                                android:src="@drawable/groupe_ban"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="0dp"
+                                android:layout_weight="6"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+
+                        android:id="@+id/cardview_tubes"
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
+                        android:outlineAmbientShadowColor="@color/colorPrimary"
+
+
                         >
 
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
 
                         <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
@@ -483,56 +554,6 @@
                         </LinearLayout>
 
 
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_rowWeight="1"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
-                        android:id="@+id/cardview_academy"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
-                        android:outlineAmbientShadowColor="@color/colorPrimary"
-
-                        >
-
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="14dp"
-                            android:orientation="vertical"
-                            android:weightSum="10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="2" />                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="6"
-                            android:weightSum="10"
-                            android:orientation="horizontal"
-                            >
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="2"
-                                android:layout_height="wrap_content"
-
-                                android:orientation="horizontal"
-                                />
-                            <ImageView
-                                android:src="@drawable/academy_ban"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_width="0dp"
-                                android:layout_weight="6"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
 
 
                         </LinearLayout>
@@ -546,65 +567,17 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:id="@+id/cardview_groupe"
-                        app:cardElevation="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
-                        android:outlineAmbientShadowColor="@color/colorPrimary"
 
-                        >
-
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="14dp"
-                            android:orientation="vertical"
-                            android:weightSum="10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="2" />                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="6"
-                            android:weightSum="10"
-                            android:orientation="horizontal"
-                            >
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="2"
-                                android:layout_height="wrap_content"
-
-                                android:orientation="horizontal"
-                                />
-                            <ImageView
-                                android:src="@drawable/groupe_ban"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_width="0dp"
-                                android:layout_weight="6"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_rowWeight="1"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
                         android:id="@+id/cardview_service"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
                         android:outlineAmbientShadowColor="@color/colorPrimary"
 
                         >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
 
                         <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
@@ -650,66 +623,17 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
-                        app:cardCornerRadius="12dp"
-                        android:id="@+id/cardview_profi"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
-                        android:outlineAmbientShadowColor="@color/colorPrimary"
 
-                        >
-
-                        <LinearLayout
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="14dp"
-                            android:orientation="vertical"
-                            android:weightSum="10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="2" />                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="6"
-                            android:weightSum="10"
-                            android:orientation="horizontal"
-                            >
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="2"
-                                android:layout_height="wrap_content"
-
-                                android:orientation="horizontal"
-                                />
-                            <ImageView
-                                android:src="@drawable/profi_ban"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_width="0dp"
-                                android:layout_weight="6"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_rowWeight="1"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
                         android:id="@+id/cardview_trading"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
                         android:outlineAmbientShadowColor="@color/colorPrimary"
 
                         >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
 
                         <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
@@ -747,6 +671,120 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+
+                        app:cardCornerRadius="5dp"
+                        android:id="@+id/cardview_profi"
+                        app:cardBackgroundColor="@color/transparent"
+                        android:outlineAmbientShadowColor="@color/colorPrimary"
+
+                        >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
+
+                        <LinearLayout
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="14dp"
+                            android:orientation="vertical"
+                            android:weightSum="10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2" />                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="6"
+                            android:weightSum="10"
+                            android:orientation="horizontal"
+                            >
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="2"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="horizontal"
+                                />
+                            <ImageView
+                                android:src="@drawable/profi_ban"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="0dp"
+                                android:layout_weight="6"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+
+                        android:id="@+id/cardview_academy"
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
+                        android:outlineAmbientShadowColor="@color/colorPrimary"
+
+                        >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
+
+                        <LinearLayout
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="14dp"
+                            android:orientation="vertical"
+                            android:weightSum="10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2" />                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="6"
+                            android:weightSum="10"
+                            android:orientation="horizontal"
+                            >
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="2"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="horizontal"
+                                />
+                            <ImageView
+                                android:src="@drawable/academy_ban"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="0dp"
+                                android:layout_weight="6"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
@@ -757,13 +795,16 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:id="@+id/cardview_altim"
-                        app:cardElevation="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
+
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
                         android:outlineAmbientShadowColor="@color/colorPrimary"
 
                         >
-
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
                         <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
                             android:layout_margin="14dp"
@@ -800,7 +841,6 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
-
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -809,13 +849,17 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        app:cardElevation="8dp"
+
                         android:id="@+id/cardview_huile"
-                        app:cardCornerRadius="12dp"
-                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        app:cardCornerRadius="5dp"
+                        app:cardBackgroundColor="@color/transparent"
                         android:outlineAmbientShadowColor="@color/colorPrimary"
 
                         >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cardview_body"/>
 
                         <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"

@@ -12,6 +12,8 @@ import com.adam.annuairechiali.Model.Constant;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckBox;
+
 import io.realm.Realm;
 
 import android.net.ConnectivityManager;
@@ -25,9 +27,12 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -63,6 +68,7 @@ public class LoginActivity extends AppCompatActivity  {
     // UI references.
     private EditText mEmailView;
     private EditText mPasswordView;
+    private AppCompatCheckBox checkbox;
     private View mProgressView;
     private RelativeLayout log;
     private Handler handler;
@@ -78,7 +84,7 @@ public class LoginActivity extends AppCompatActivity  {
         handler = new LoginHandler();
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
-
+        checkbox =  findViewById(R.id.checkbox);
         mEmailView.setText(MyPreferences.getMyString(getApplicationContext(), Constant.LAST_USERNAME, ""));
         log = findViewById(R.id.log);
 
@@ -93,6 +99,19 @@ public class LoginActivity extends AppCompatActivity  {
                 return false;
             }
         });*/
+
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    // show password
+                    mPasswordView.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    // hide password
+                    mPasswordView.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
         log.setOnClickListener(new OnClickListener() {
             @Override

@@ -145,7 +145,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
         viewHolder.description.setText(userModel.getCode());
         //viewHolder.description.setText(userModel.getDescription());
        // Glide.with(getContext()).load(userModel.getImageUrl()).into(viewHolder.image);
-        int picId = mContext.getResources().getIdentifier(userModel.getDescription().toLowerCase(), "drawable", mContext.getPackageName());
+        /*int picId = mContext.getResources().getIdentifier(userModel.getDescription().toLowerCase(), "drawable", mContext.getPackageName());
 
         if (picId != 0) {
             viewHolder.image.setImageResource(picId);
@@ -153,7 +153,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department> implements View.
 
         } else {
             //holder.imageC.setImageResource(C0267R.drawable.ic_def_image_factory);
-        }
+        }*/
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

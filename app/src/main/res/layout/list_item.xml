@@ -17,9 +17,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/colorPrimaryDark"
+    app:cardBackgroundColor="@color/transparent30"
 
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="4dp"
     android:id="@+id/cardview2"
     app:cardUseCompatPadding="true">
 <LinearLayout

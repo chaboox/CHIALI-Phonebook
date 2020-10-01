@@ -33,7 +33,9 @@ public class DepartmentActivity extends BaseSwipeBackActivity {
     public static Handler handler;
     private ImageView back;
     private TextView companyT, dep;
+    private ImageView banner;
     private RelativeLayout relativeLayout;
+
 
 
     @Override
@@ -55,6 +57,15 @@ public class DepartmentActivity extends BaseSwipeBackActivity {
         companyR = RealmManager.getCompanyByCode(company);
         DepartmentAdapter adapter = new DepartmentAdapter(companyR.getDepartments(), getApplicationContext(), this);
         companyT.setText(companyR.getNameAD());
+        int picId = getApplicationContext().getResources().getIdentifier(companyR.getNameAD().replace(" ", "").toLowerCase(), "drawable", getApplicationContext().getPackageName());
+
+        if (picId != 0) {
+            banner.setImageResource(picId);
+            //Glide.with(mContext).load(picId).into(holder.imageC);
+
+        } else {
+            //holder.imageC.setImageResource(C0267R.drawable.ic_def_image_factory);
+        }
 
         listView.setAdapter(adapter);
 
@@ -77,6 +88,8 @@ public class DepartmentActivity extends BaseSwipeBackActivity {
     }
 
     private void initView(){
+
+        banner = findViewById(R.id.banner);
         companyT = findViewById(R.id.company_title);
         listView = findViewById(R.id.listview);
         handler = new HandlerDep();

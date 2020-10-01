@@ -17,9 +17,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    app:cardBackgroundColor="@color/transparent10"
     android:id="@+id/cardview2"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="4dp"
     app:cardUseCompatPadding="true">
 <LinearLayout
     android:layout_width="match_parent"
@@ -34,6 +34,7 @@
         android:src="@drawable/user"
         android:id="@+id/image"
         app:civ_border_width="1dp"
+        app:civ_circle_background_color="@color/white"
         app:civ_border_color="@color/gray3"/>
 
     <androidx.legacy.widget.Space
@@ -60,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"/>
 
     </LinearLayout>

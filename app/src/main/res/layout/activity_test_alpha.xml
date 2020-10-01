@@ -12,14 +12,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ListContactActivity"
-    android:background="@color/white"
+    android:background="@color/colorPrimaryDark"
     android:focusable="true" android:focusableInTouchMode="true">
     <ImageView
             android:id="@+id/up"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/blue_100_600x600"/>
+            android:background="@color/colorPrimary"/>
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
