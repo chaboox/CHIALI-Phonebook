@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:background="@drawable/blue_100_600x600"
+        android:background="@color/colorPrimaryDark"
         >
 
         <ScrollView
@@ -31,7 +31,7 @@
                     android:layout_height="250dp"
                     android:orientation="vertical"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/blue_100_600x600"
+                    android:background="@color/colorPrimaryDark"
 
                     >
 
@@ -50,7 +50,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/download"
+                            android:src="@drawable/export_new"
                             android:padding="7dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="7dp"

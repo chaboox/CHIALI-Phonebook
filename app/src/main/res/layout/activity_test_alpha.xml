@@ -34,7 +34,7 @@
         android:layout_height="50dp"
 
         android:padding="10dp"
-        android:src="@drawable/download"
+        android:src="@drawable/export_new"
         android:layout_marginLeft="3dp"
         android:id="@+id/export"
         android:layout_alignParentEnd="true"/>
