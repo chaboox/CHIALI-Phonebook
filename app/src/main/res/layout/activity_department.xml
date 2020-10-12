@@ -28,18 +28,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/colorPrimaryDark"/>
-    <ImageView
-        android:id="@+id/banner"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="116dp"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:id="@+id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_centerHorizontal="true"
+            />
 
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:layout_centerHorizontal="true"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Structures"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 
     <ImageView
         android:layout_width="50dp"
@@ -73,6 +84,7 @@
         android:layout_width="match_parent"
         app:cardBackgroundColor="@color/white"
         android:layout_height="70dp"
+        android:visibility="invisible"
         app:cardCornerRadius="24dp"
         android:layout_marginTop="46dp"
         app:cardUseCompatPadding="true">
@@ -89,7 +101,7 @@
                 android:padding="10dp"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="Départements"
+                android:text="Structures"
                 android:drawablePadding="13dp"
                 android:textStyle="bold"
                 android:background="@null"
@@ -107,9 +119,10 @@
         android:layout_height="match_parent"
         android:id="@+id/listview"
         android:divider="@null"
-        android:dividerHeight="0dp"
+        android:dividerHeight="-2dp"
+
         android:layout_below="@id/up"
-        android:clipToPadding="false"
+
         android:paddingTop="35dp"
        />
     <RelativeLayout

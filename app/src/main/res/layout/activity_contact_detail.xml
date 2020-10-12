@@ -7,6 +7,11 @@
     app:directionMode="left"
 
     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,7 +19,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
   >
 
     <ScrollView
@@ -34,6 +39,7 @@
                 android:background="@color/colorPrimaryDark"
 
                 >
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -57,7 +63,24 @@
                         android:id="@+id/export"
                         android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
-                <androidx.cardview.widget.CardView
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    >
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        app:cardElevation="8dp"
+                        android:layout_marginTop="60dp"
+
+                        android:shadowDx="4"
+                        android:shadowDy="4"
+                        android:shadowRadius="12"
+                        app:cardCornerRadius="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="-50dp"/>
+                    <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     app:cardElevation="8dp"
@@ -65,8 +88,10 @@
                     android:shadowDy="4"
                     android:shadowRadius="12"
                     app:cardCornerRadius="60dp"
+                        android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp">
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/image"
@@ -77,48 +102,47 @@
                         app:civ_border_width="3dp"
 
                         app:civ_border_color="@color/white"
-                        android:src="@drawable/user_h"
+                        android:src="@drawable/user2"
                         />
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView></RelativeLayout>
 
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Adam Deboosere"
-                    android:layout_gravity="center"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"/>
-                <TextView
-                    android:id="@+id/job"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dev mobile"
-                    android:layout_gravity="center"
-                    android:textSize="13sp"
-                    android:textColor="@color/grayclair"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adam Deboosere"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:id="@+id/job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dev mobile"
+                        android:layout_gravity="center"
+                        android:textSize="13sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        />
 
-                <TextView
-                    android:id="@+id/departement_i"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DSI"
-                    android:layout_gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="@color/grayclair"
-                    />
+                    <TextView
+                        android:id="@+id/departement_i"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DSI"
+                        android:layout_gravity="center"
+                        android:textSize="12sp"
+                        android:textColor="@color/grayF"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardUseCompatPadding="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                app:cardBackgroundColor="@color/white"
-                >
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -328,6 +352,7 @@
                     android:text="38 - Bloc Administratif" />
 
                 <View
+                    android:visibility="invisible"
                     android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="2px"
@@ -340,7 +365,7 @@
 
             </RelativeLayout>
         </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -425,4 +450,6 @@
 
 
 </LinearLayout>
+
+    </RelativeLayout>
 </com.gw.swipeback.SwipeBackLayout>

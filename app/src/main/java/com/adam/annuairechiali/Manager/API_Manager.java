@@ -589,7 +589,7 @@ public class API_Manager {
     }
 
     public static void getPicById(final String id, final Context context, final ImageView imageView, final Contact contact, final String holderId) throws UnsupportedEncodingException {
-        imageView.setImageResource(R.drawable.user);
+        imageView.setImageResource(R.drawable.user2);
         //substring
         if(turn == null)
             turn = new HashMap<>();
@@ -639,7 +639,7 @@ public class API_Manager {
 
                     else {
                         Log.d("DKHALE2", "onResponse: ");
-                       imageView.setImageResource(R.drawable.user);
+                       imageView.setImageResource(R.drawable.user2);
                         RealmManager.savePic(contact, "none");
                     }
                 } catch (JSONException e) {
@@ -665,7 +665,7 @@ public class API_Manager {
     }
 
     public static void getPicByIdForDetailActivity(final String id, final Context context, final ImageView imageView, final Contact contact) throws UnsupportedEncodingException {
-        //imageView.setImageResource(R.drawable.user);
+        //imageView.setImageResource(R.drawable.user2);
         //substring
 
 
@@ -698,7 +698,7 @@ public class API_Manager {
 
                     else {
                         Log.d("DKHALE2", "onResponse: ");
-                      //  imageView.setImageResource(R.drawable.user);
+                      //  imageView.setImageResource(R.drawable.user2);
                         RealmManager.savePic(contact, "none");
                     }
                 } catch (JSONException e) {
@@ -723,7 +723,7 @@ public class API_Manager {
         requestQueue.add(object);
     }
     public static void getPicsByIds(final ArrayList<String> id, final Context context, final Handler handler, final int what) throws UnsupportedEncodingException {
-       // imageView.setImageResource(R.drawable.user);
+       // imageView.setImageResource(R.drawable.user2);
         //substring
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
@@ -814,7 +814,7 @@ public class API_Manager {
 
                     else {
                         Log.d("DKHALE2", "onResponse: ");
-                        imageView.setImageResource(R.drawable.user);
+                        imageView.setImageResource(R.drawable.user2);
                         RealmManager.savePic(contact2, "none");
                     }
                 } catch (JSONException e) {

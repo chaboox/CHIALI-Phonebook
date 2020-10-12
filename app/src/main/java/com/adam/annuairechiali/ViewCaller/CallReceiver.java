@@ -70,7 +70,7 @@ public class CallReceiver extends BroadcastReceiver {
                         String pic = contact.getPictureC();
                         if (pic == null) pic = "null";
                         if(pic .equals("none")){
-                            // image.setImageResource(R.drawable.user);
+                            // image.setImageResource(R.drawable.user2);
                         }
                         else {
 

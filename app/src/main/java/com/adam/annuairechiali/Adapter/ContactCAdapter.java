@@ -55,7 +55,7 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
             String pic =  c.getPictureC();
             if (pic == null) pic = "null";
             if(pic .equals("none")){
-              //  holder.imageView.setImageResource(R.drawable.user);
+              //  holder.imageView.setImageResource(R.drawable.user2);
                // Log.d("NONE", "onBindViewHolder: " + mData.get(position).getName() );
             }
             else {
@@ -114,7 +114,7 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
         holder.id = mData.get(position).getId();
 
         Log.d("HOLDER", "onBindViewHolder: " + holder.toString().substring(11, 18) + holder.toString());
-        //holder.imageView.setImageResource(R.drawable.user);
+        //holder.imageView.setImageResource(R.drawable.user2);
         // byte[] b = s.getBytes();
        // Log.d("PIC", "onBindViewHolder: " + mData.get(position).getName() + "     LL:" + );
 
@@ -122,7 +122,7 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
 
         if (pic == null) pic = "null";
         if(pic .equals("none")){
-            holder.imageView.setImageResource(R.drawable.user);
+            holder.imageView.setImageResource(R.drawable.user2);
             Log.d("NONE", "onBindViewHolder: " + mData.get(position).getName());
         }
         else {
@@ -136,7 +136,7 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
                 //holder.imageView.setImageBitmap(decodeSampleBitmap(Base64.decode(pic, Base64.DEFAULT), 60, 60));
             } else {
                 Log.d("DKHALE", "onBindViewHolder: " + pic);
-                holder.imageView.setImageResource(R.drawable.user);
+                holder.imageView.setImageResource(R.drawable.user2);
                 holderHashMap.put( holder.toString().substring(11, 18), holder);
                 try {
                     API_Manager.getPicById(mData.get(position).getId(), mContext, holder.imageView, (mData.get(position)), holder.toString().substring(11, 18));
@@ -221,7 +221,7 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
                         String pic = RealmManager.getContactbyId(viewHolder.id).getPictureC();
                         if (pic == null) pic = "null";
                         if(pic .equals("none")){
-                            viewHolder.imageView.setImageResource(R.drawable.user);
+                            viewHolder.imageView.setImageResource(R.drawable.user2);
                         //    Log.d("NONE", "onBindViewHolder: " + mData.get(position).getName() );
                         }
                         else {

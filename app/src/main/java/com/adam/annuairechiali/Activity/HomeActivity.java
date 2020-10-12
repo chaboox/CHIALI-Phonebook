@@ -265,10 +265,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     img1.setImageBitmap(bitmap);
                 }
                 else {
-                    img1.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                    img1.setImageResource(getResources().getIdentifier("user2", "drawable", getPackageName()));
                 }}
             else {
-                img1.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                img1.setImageResource(getResources().getIdentifier("user2", "drawable", getPackageName()));
             }}
         }
         if(cash2.length()>0){
@@ -287,10 +287,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     img2.setImageBitmap(bitmap);
                 }
                 else {
-                    img2.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                    img2.setImageResource(getResources().getIdentifier("user2", "drawable", getPackageName()));
                 }}
             else {
-                img2.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                img2.setImageResource(getResources().getIdentifier("user2", "drawable", getPackageName()));
             }}
         }
 
@@ -310,10 +310,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     img3.setImageBitmap(bitmap);
                 }
                 else {
-                    img3.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                    img3.setImageResource(getResources().getIdentifier("user2", "drawable", getPackageName()));
                 }}
             else {
-                img3.setImageResource(getResources().getIdentifier("user", "drawable", getPackageName()));
+                img3.setImageResource(getResources().getIdentifier("user2", "drawable", getPackageName()));
             }}
         }
     }
@@ -736,24 +736,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     switch (pickerView.getSelectedIndex()){
                         case 0: contacts = RealmManager.getContactsByName(sear);
                         break;
-                        case 1: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TUBES");
+                        case 1: contacts = RealmManager.getContactsByNameAndFilial(sear, "GROUPE CHIALI");
+                            break;
+                        case 2: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TUBES");
                         break;
-                        case 2: {
+                        case 3: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI SERVICES");
+                            break;
+                        case 4: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI PROFIPLAST");
+                            break;
+                        case 5: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
+                            break;
+                        case 6: {
                                 contacts = RealmManager.getContactsByNameAndFilial(sear,"CHIALI ACADEMIE"); }
                         break;
-                        case 3: contacts = RealmManager.getContactsByNameAndFilial(sear, "GROUPE CHIALI");
+
+                        case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM INVEST");
                             break;
-                        case 4: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI SERVICES");
-                            break;
-                        case 5: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI PROFIPLAST");
-                            break;
-                        case 6: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI NAWAFID");
-                            break;
-                        case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
-                            break;
-                        case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM INVEST");
-                            break;
-                        case 9: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
+                        case 8: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
                             break;
                         default:{
                             contacts = RealmManager.getContactsByName(sear);
@@ -1134,25 +1133,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                                 case 0: contacts = RealmManager.getContactsByName(sear);
                                     break;
-                                case 1: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TUBES");
+                                case 1: contacts = RealmManager.getContactsByNameAndFilial(sear, "GROUPE CHIALI");
                                     break;
-                                case 2: {
-                                    contacts = RealmManager.getContactsByNameAndFilial(sear,"CHIALI ACADEMIE");
-                                }
+                                case 2: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TUBES");
+                                    break;
+                                case 3: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI SERVICES");
+                                    break;
+                                case 4: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI PROFIPLAST");
+                                    break;
+                                case 5: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
+                                    break;
+                                case 6: {
+                                    contacts = RealmManager.getContactsByNameAndFilial(sear,"CHIALI ACADEMIE"); }
                                 break;
-                                case 3: contacts = RealmManager.getContactsByNameAndFilial(sear, "GROUPE CHIALI");
+
+                                case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM INVEST");
                                     break;
-                                case 4: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI SERVICES");
-                                    break;
-                                case 5: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI PROFIPLAST");
-                                    break;
-                                case 6: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI NAWAFID");
-                                    break;
-                                case 7: contacts = RealmManager.getContactsByNameAndFilial(sear, "CHIALI TRADING");
-                                    break;
-                                case 8: contacts = RealmManager.getContactsByNameAndFilial(sear, "ALTIM INVEST");
-                                    break;
-                                case 9: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
+                                case 8: contacts = RealmManager.getContactsByNameAndFilial(sear,"HUILERIE");
                                     break;
                                 default:{
                                     contacts = RealmManager.getContactsByName(sear);

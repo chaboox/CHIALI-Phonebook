@@ -34,15 +34,14 @@ public class AdvancedExampleCountryPOJO {
     public static List<AdvancedExampleCountryPOJO> getExampleDataset() {
         return Arrays.asList(
                 new AdvancedExampleCountryPOJO("Tout", R.drawable.filter),
-                new AdvancedExampleCountryPOJO("Tubes", R.drawable.pipe6),
-                new AdvancedExampleCountryPOJO("Academie", R.drawable.graduated),
-                new AdvancedExampleCountryPOJO("Groupe", R.drawable.tie),
-                new AdvancedExampleCountryPOJO("Services", R.drawable.hammer),
-                new AdvancedExampleCountryPOJO("Profiplast", R.drawable.door),
-                new AdvancedExampleCountryPOJO("Nawafid", R.drawable.window),
-                new AdvancedExampleCountryPOJO("Trading", R.drawable.sale),
-                new AdvancedExampleCountryPOJO("Altim", R.drawable.farm),
-                new AdvancedExampleCountryPOJO("Huilerie", R.drawable.food)
+                new AdvancedExampleCountryPOJO("GROUPE CHIALI", R.drawable.tie),
+                new AdvancedExampleCountryPOJO("CHIALI TUBES", R.drawable.pipe6),
+                new AdvancedExampleCountryPOJO("CHIALI SERVICES", R.drawable.hammer),
+                new AdvancedExampleCountryPOJO("CHIALI PROFIPLAST", R.drawable.door),
+                new AdvancedExampleCountryPOJO("CHIALI TRADING", R.drawable.sale),
+                new AdvancedExampleCountryPOJO("CHIALI ACADEMIE", R.drawable.graduated),
+                new AdvancedExampleCountryPOJO("ALTIM", R.drawable.farm),
+                new AdvancedExampleCountryPOJO("CHIALI HUILERIE", R.drawable.food)
         );
     }
 }

@@ -97,10 +97,10 @@
     <string name="altime">ALTIM</string>
     <string name="all">ALL</string>
     <string name="huile">HUILERIE</string>
-    <string name="recent">Récent</string>
+    <string name="recent">Récents</string>
     <string name="filial">Filiales</string>
     <string name="d_velopp_par_nadam_deboos_re_n_2020_gc_inc">Développé par\nDSI CHIALI TUBES\n© 2020 CHIALI Inc.</string>
-    <string name="annuaire_chiali">Annuaire - CHIALI</string>
+    <string name="annuaire_chiali">Annuaire GROUPE CHIALI</string>
 
     <string name="picker_box_arrows_icon">picker box arrows icon</string>
     <string name="cell_image">cell image</string>

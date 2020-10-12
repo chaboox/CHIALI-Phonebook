@@ -77,7 +77,7 @@
                             app:civ_border_width="3dp"
 
                             app:civ_border_color="@color/white"
-                            android:src="@drawable/user"
+                            android:src="@drawable/user2"
                             />
                     </androidx.cardview.widget.CardView>
 
