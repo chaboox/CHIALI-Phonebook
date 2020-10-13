@@ -453,6 +453,7 @@
                         android:layout_marginRight="8dp"
                         android:id="@+id/cardview_groupe"
 
+
                         app:cardCornerRadius="5dp"
                         app:cardBackgroundColor="@color/transparent"
                         android:outlineAmbientShadowColor="@color/colorPrimary"
@@ -464,7 +465,7 @@
                             android:background="@drawable/cardview_body"/>
                         <LinearLayout
                             android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="14dp"
+                            android:layout_margin="0dp"
                             android:orientation="vertical"
                             android:weightSum="10"
                             android:layout_width="wrap_content"
