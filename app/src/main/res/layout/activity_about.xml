@@ -7,11 +7,11 @@
     tools:context=".Activity.AboutActivity"
     android:background="@color/white">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/manwhite_shadow2"
-        android:scaleType="fitEnd"/>
+        android:src="@drawable/background_about"
+        android:scaleType="centerCrop"/>
 <LinearLayout
     android:layout_marginTop="40dp"
     android:layout_width="match_parent"
@@ -23,11 +23,38 @@
         android:layout_height="wrap_content"
         android:text="@string/annuaire_chiali"
         android:textSize="24sp"
+        android:visibility="gone"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:gravity="center"
       />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="28"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="44"
+            android:src="@drawable/logo_color">
 
+        </ImageView>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="28"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/collabo"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,9 +62,10 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Version 2.0.0"
-        android:textColor="@color/gray3"
-        android:textSize="18sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="17sp" />
 <LinearLayout
+    android:visibility="gone"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:padding="3dp"

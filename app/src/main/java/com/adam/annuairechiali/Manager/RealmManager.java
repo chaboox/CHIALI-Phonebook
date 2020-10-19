@@ -49,7 +49,7 @@ public class RealmManager {
     }
 
     public void initHandler(){
-         handlerRealm = new HandlerRealm();
+        handlerRealm = new HandlerRealm();
     }
     public  void saveContacts(final ArrayList<Contact> contacts){
         //cts = contacts;
@@ -282,7 +282,7 @@ public class RealmManager {
 
         final RealmResults<Contact> contacts2 = realm.where(Contact.class).equalTo("company", "PHAR").findAll();
         Log.d("POP6", "showCity: " + contacts2);
-       // realm.close();
+        // realm.close();
     }
 
 
@@ -309,19 +309,19 @@ public class RealmManager {
 
         RealmQuery<Contact> query = realm.where(Contact.class);
         if(!secondWord.equals("")){
-        query.like("nameN","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
-        conta = query.limit(13).sort("nameN").findAll();
-        for(Contact c : conta){
-            contactArray.add(c);
-        }
-        if(contactArray.size() < 13){
-        RealmQuery<Contact> query2 = realm.where(Contact.class);
-        query2.like("nameN","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
-        conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
-        for(Contact c : conta){
-            contactArray.add(c);
-        }
-        }}
+            query.like("nameN","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
+            conta = query.limit(13).sort("nameN").findAll();
+            for(Contact c : conta){
+                contactArray.add(c);
+            }
+            if(contactArray.size() < 13){
+                RealmQuery<Contact> query2 = realm.where(Contact.class);
+                query2.like("nameN","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
+                conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
+                for(Contact c : conta){
+                    contactArray.add(c);
+                }
+            }}
         else {
             query.like("nameN","" + firstWord + "*"  , Case.INSENSITIVE);
             conta = query.limit(13).sort("nameN").findAll();
@@ -338,30 +338,32 @@ public class RealmManager {
             }
         }
 
-       // Log.d("SEMA", "getContactsByName: " + compareStrings(search, "ouazzani")   + " First : " + firstWord + "   secondeword" + secondWord );
 
-      /*  RealmResults<Contact> conta = realm.where(Contact.class).beginsWith("name", search  , Case.INSENSITIVE).sort("name").limit(13).findAll();
 
-        for(Contact c : conta){
-            contactArray.add(c);
-        }
-        //Object[] contacts = conta.toArray();
-        if(conta.size() < 13) {
-          conta = realm.where(Contact.class).contains("name", search, Case.INSENSITIVE).not().beginGroup()
-            .beginsWith("name", search, Case.INSENSITIVE)
-                    .endGroup().sort("name").limit(13 - conta.size()).findAll();
-
+        if(contactArray.size() < 13){
+            conta = realm.where(Contact.class).contains("descriptionN", search, Case.INSENSITIVE).not().beginGroup()
+                    .beginsWith("nameN", search, Case.INSENSITIVE).or()
+                    .contains("nameN", search, Case.INSENSITIVE)
+                    .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
-
-
-        }*/
+        }
 
         if(contactArray.size() < 13){
-            conta = realm.where(Contact.class).contains("description", search, Case.INSENSITIVE).not().beginGroup()
+            conta = realm.where(Contact.class).contains("departmentN", search, Case.INSENSITIVE).not().beginGroup()
                     .beginsWith("nameN", search, Case.INSENSITIVE).or()
-                    .contains("nameN", search, Case.INSENSITIVE)
+                    .contains("nameN", search, Case.INSENSITIVE).or().contains("descriptionN", search, Case.INSENSITIVE)
+                    .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
+            for(Contact c : conta){
+                contactArray.add(c);
+            }
+        }
+
+        if(contactArray.size() < 13){
+            conta = realm.where(Contact.class).contains("departmentI", search, Case.INSENSITIVE).not().beginGroup()
+                    .beginsWith("nameN", search, Case.INSENSITIVE).or()
+                    .contains("nameN", search, Case.INSENSITIVE).or().contains("descriptionN", search, Case.INSENSITIVE).or().contains("departmentN", search, Case.INSENSITIVE)
                     .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
@@ -480,7 +482,7 @@ public class RealmManager {
         }*/
 
         if(contactArray.size() < 13){
-            conta = realm.where(Contact.class).contains("description", search, Case.INSENSITIVE).not().beginGroup()
+            conta = realm.where(Contact.class).contains("descriptionN", search, Case.INSENSITIVE).not().beginGroup()
                     .beginsWith("nameN", search, Case.INSENSITIVE).or()
                     .contains("nameN", search, Case.INSENSITIVE)
                     .endGroup().and().equalTo("company", filial).sort("nameN").limit(13 - contactArray.size()).findAll();
@@ -488,6 +490,29 @@ public class RealmManager {
                 contactArray.add(c);
             }
         }
+
+
+        if(contactArray.size() < 13){
+            conta = realm.where(Contact.class).contains("departmentN", search, Case.INSENSITIVE).not().beginGroup()
+                    .beginsWith("nameN", search, Case.INSENSITIVE).or()
+                    .contains("nameN", search, Case.INSENSITIVE).or().contains("descriptionN", search, Case.INSENSITIVE)
+                    .endGroup().and().equalTo("company", filial).sort("nameN").limit(13 - contactArray.size()).findAll();
+            for(Contact c : conta){
+                contactArray.add(c);
+            }
+        }
+
+        if(contactArray.size() < 13){
+            conta = realm.where(Contact.class).contains("departmentI", search, Case.INSENSITIVE).not().beginGroup()
+                    .beginsWith("nameN", search, Case.INSENSITIVE).or()
+                    .contains("nameN", search, Case.INSENSITIVE).or().contains("descriptionN", search, Case.INSENSITIVE).or().contains("departmentN", search, Case.INSENSITIVE)
+                    .endGroup().and().equalTo("company", filial).sort("nameN").limit(13 - contactArray.size()).findAll();
+            for(Contact c : conta){
+                contactArray.add(c);
+            }
+        }
+
+
 
         if(contactArray.size() < 13){
             conta = realm.where(Contact.class).beginsWith("number", search, Case.INSENSITIVE).and().equalTo("company", filial).sort("name").limit(13 - contactArray.size()).findAll();
@@ -528,7 +553,7 @@ public class RealmManager {
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Contact> conta;
 
-             conta = realm.where(Contact.class).equalTo("company", company).equalTo("department", department).sort("name").findAll();
+        conta = realm.where(Contact.class).equalTo("company", company).equalTo("department", department).sort("name").findAll();
 
         //  realm.close();
         return conta;
@@ -538,7 +563,7 @@ public class RealmManager {
 
 
     public static Contact getContactByNumber(String number){
-     //   Realm.init(getApplicationContext());
+        //   Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
         return realm.where(Contact.class).equalTo("number", number).findFirst();
@@ -548,7 +573,7 @@ public class RealmManager {
     public static Contact getContactbyId(String id) {
         Realm realm = Realm.getDefaultInstance();
         Contact contact = realm.where(Contact.class).equalTo("id", id).findFirst();
-            // do something with the person ...
+        // do something with the person ...
         realm.close();
         return contact;
     }
@@ -556,10 +581,10 @@ public class RealmManager {
     public static void DeleteById(String id){
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
-         RealmObject c = realm.where(Contact.class).equalTo("id", id).findFirst();
+        RealmObject c = realm.where(Contact.class).equalTo("id", id).findFirst();
 
-         if(c != null)
-             c.deleteFromRealm();
+        if(c != null)
+            c.deleteFromRealm();
 
         realm.commitTransaction();
         realm.close();
@@ -569,8 +594,8 @@ public class RealmManager {
     public static RealmResults<Company> getCompanies() {
         Realm realm = Realm.getDefaultInstance();
         //CHABOOX is too avoid company with no contact
-       // RealmResults<Company> companies = realm.where(Company.class).notEqualTo("cities.code", "CHABOOX").findAll();
-       RealmResults<Company> companies = realm.where(Company.class).findAll();
+        // RealmResults<Company> companies = realm.where(Company.class).notEqualTo("cities.code", "CHABOOX").findAll();
+        RealmResults<Company> companies = realm.where(Company.class).findAll();
         realm.close();
         return companies;
     }
@@ -609,7 +634,7 @@ public class RealmManager {
         for(Contact c : contacts){
             cities.add(new City(cityDesc.get(c.getCity()), c.getCity(), company + "_" + c.getCity()));
         }
-      //  realm.close();
+        //  realm.close();
 
         return  cities;
     }
@@ -749,7 +774,7 @@ public class RealmManager {
         RealmResults<Company> companies = realm.where(Company.class).findAll();
         realm.beginTransaction();
         for(Company company: companies){
-        ArrayList<City> cities= getCityByCompany(company.getNameAD());
+            ArrayList<City> cities= getCityByCompany(company.getNameAD());
 
            /* initHandler();
             Message message = new Message();
@@ -814,12 +839,12 @@ public class RealmManager {
         }
         realm.commitTransaction();
         realm.close();
-       handler.sendEmptyMessage(what);
+        handler.sendEmptyMessage(what);
     }
 
-   // public static int compareStrings(String stringA, String stringB) {
-   //     return StringUtils.getLevenshteinDistance(stringA, stringB);
-   // }
+    // public static int compareStrings(String stringA, String stringB) {
+    //     return StringUtils.getLevenshteinDistance(stringA, stringB);
+    // }
 
     public class HandlerRealm extends Handler {
         @Override
@@ -857,7 +882,7 @@ public class RealmManager {
                     // Persist unmanaged objects
 //        Company company = realm.createObject(Company.class); // Create managed objects directly
                     City c2 = realm.where(City.class).equalTo("id", ((Object[])( msg.obj))[2].toString()).findFirst();
-                  //  Log.d("SIZEE", "saveCity: " + departments.size());
+                    //  Log.d("SIZEE", "saveCity: " + departments.size());
 
 
                     for(Department d: ((ListDepartment) (((Object[])( msg.obj))[0])).getDepartments()) {

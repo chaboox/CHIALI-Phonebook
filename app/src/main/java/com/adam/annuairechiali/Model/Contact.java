@@ -13,7 +13,7 @@ public class
 Contact extends RealmObject implements Serializable {
     @PrimaryKey
     private String id;
-    private String name, nameN;
+    private String name, nameN, departmentN, descriptionN;
             private String  company, description, city, number, voip, department, departmentI, mail, pictureC;
     private byte[]  picture;
     private boolean boss;
@@ -70,6 +70,8 @@ Contact extends RealmObject implements Serializable {
             this.nameN = Normalizer.normalize(this.name, Normalizer.Form.NFD)
                     .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
             this.description = jsonObject.getString("description");
+            this.descriptionN = Normalizer.normalize(this.description, Normalizer.Form.NFD)
+                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
             this.company = jsonObject.getString("company");
             this.city = jsonObject.getString("city");
             if(jsonObject.getString("number").length() >= 9 ) {
@@ -78,6 +80,8 @@ Contact extends RealmObject implements Serializable {
             else  this.number = "null";
             this.voip = jsonObject.getString("voip");
             this.department = jsonObject.getString("department");
+            this.departmentN = Normalizer.normalize(this.department, Normalizer.Form.NFD)
+                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
             this.departmentI = jsonObject.getString("departmentI");
             this.mail = jsonObject.getString("mail");
             this.boss = jsonObject.getBoolean("boss");
@@ -126,8 +130,21 @@ Contact extends RealmObject implements Serializable {
         this.description = description;
     }
 
+    public String getDepartmentN() {
+        return departmentN;
+    }
 
+    public void setDepartmentN(String departmentN) {
+        this.departmentN = departmentN;
+    }
 
+    public String getDescriptionN() {
+        return descriptionN;
+    }
+
+    public void setDescriptionN(String descriptionN) {
+        this.descriptionN = descriptionN;
+    }
 
     public String getCity() {
         return city;
