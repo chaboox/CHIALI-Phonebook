@@ -370,7 +370,7 @@ public class ProfilDetailActivity  extends BaseSwipeBackActivity  {
                 };
 
                 android.app.AlertDialog.Builder builder = new AlertDialog.Builder(ProfilDetailActivity.this);
-                builder.setMessage("Exporter cette personne dans votre liste de contact?").setPositiveButton("Oui", dialogClickListener)
+                builder.setMessage("Exporter ce contact vers votre téléphone ?").setPositiveButton("Oui", dialogClickListener)
                         .setNegativeButton("Non", dialogClickListener).show();
                 //exportContact();
             }

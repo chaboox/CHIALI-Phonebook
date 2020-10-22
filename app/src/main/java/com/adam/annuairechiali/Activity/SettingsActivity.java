@@ -451,7 +451,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     return true;
                 }
             });
-            Preference nawafid = findPreference("nawafid");
+        /*    Preference nawafid = findPreference("nawafid");
             nawafid.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 public boolean onPreferenceClick(Preference preference) {
                     DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -475,7 +475,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
                     return true;
                 }
-            });
+            });*/
             Preference trading = findPreference("trading");
             trading.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 public boolean onPreferenceClick(Preference preference) {
@@ -824,7 +824,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             };
 
             android.app.AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setMessage("Vous êtes sur le point d'exporter tous les contacts du groupe sur votre telephone?").setPositiveButton("Continuer", dialogClickListener)
+            builder.setMessage("Vous êtes sur le point d'exporter tous les contacts du groupe sur votre téléphone?").setPositiveButton("Continuer", dialogClickListener)
                     .setNegativeButton("Annuler", dialogClickListener).show();
             // exportContact(contact, context);
         }

@@ -58,26 +58,7 @@ public class RealmManager {
         message.obj = contacts;
         message.what = Constant.CONTACT;
         handlerRealm.sendMessage(message);
-       /* realM = Realm.getDefaultInstance();
-        realM.beginTransaction();
-        realM.insertOrUpdate(contacts);
-        realM.commitTransaction();
-        realM.close();*/
 
-
-
-        /*realM.executeTransactionAsync(new Realm.Transaction() {
-            @Override
-            public void execute(Realm bgRealm) {
-                bgRealm.insertOrUpdate(contacts);
-            }
-        }, new Realm.Transaction.OnSuccess() {
-            @Override
-            public void onSuccess() {
-                // Original queries and Realm objects are automatically updated.
-
-            }
-        });*/
 
     }
 

@@ -183,7 +183,7 @@ public class ListContactActivity extends BaseSwipeBackActivity {
             };
 
             android.app.AlertDialog.Builder builder = new AlertDialog.Builder(ListContactActivity.this);
-            builder.setMessage("Exporter ce departement dans votre liste de contact?").setPositiveButton("Oui", dialogClickListener)
+            builder.setMessage("Exporter les contacts vers le téléphone?").setPositiveButton("Oui", dialogClickListener)
                     .setNegativeButton("Non", dialogClickListener).show();
             // exportContact(contact, context);
         }
@@ -205,7 +205,7 @@ public class ListContactActivity extends BaseSwipeBackActivity {
                                 .setTarget(R.id.export)
                                 .setFocalColour(getColor(R.color.transparent_white))
                                 .setPrimaryText("Exporter")
-                                .setSecondaryText("Exporter tous les collaborateurs du departement vers votre téléphone")
+                                .setSecondaryText("Exporter tous les collaborateurs de la structure vers votre téléphone")
                                 .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()
                                 {
                                     @Override

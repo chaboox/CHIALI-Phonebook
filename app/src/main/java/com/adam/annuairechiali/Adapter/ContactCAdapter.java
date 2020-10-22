@@ -97,7 +97,7 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
             job ="";
         holder.job.setText(job);
         holder.company.setVisibility(View.VISIBLE);
-        holder.company.setText(mData.get(position).getCompany());
+        holder.company.setText(mData.get(position).getCompany() + " - " + mData.get(position).getDepartmentI());
         /*
         if(mData.get(position).isBoss()) {
             holder.star.setImageResource(R.drawable.star3);

@@ -10,25 +10,24 @@
     <Preference android:title="Toutes les filiales" android:key="all_company">
     </Preference>
 
-    <Preference android:title="CHIALI TUBES" android:key="tubes">
-    </Preference>
-
-    <Preference android:title="CHIALI ACADEMIE" android:key="academy">
-    </Preference>
-
     <Preference android:title="GROUPE CHIALI" android:key="groupe">
     </Preference>
 
+    <Preference android:title="CHIALI TUBES" android:key="tubes">
+    </Preference>
+
+
     <Preference android:title="CHIALI SERVICES" android:key="services">
+    </Preference>
+
+
+    <Preference android:title="CHIALI TRADING" android:key="trading">
     </Preference>
 
     <Preference android:title="CHIALI PROFIPLAST" android:key="profi">
     </Preference>
 
-    <Preference android:title="CHIALI NAWAFID" android:key="nawafid">
-    </Preference>
-
-    <Preference android:title="CHIALI TRADING" android:key="trading">
+    <Preference android:title="CHIALI ACADEMIE" android:key="academy">
     </Preference>
 
     <Preference android:title="ALTIM" android:key="altim">
@@ -38,6 +37,13 @@
 
     <Preference android:title="HUILERIE" android:key="huile">
     </Preference>
+
+
+
+
+
+
+
 
 
 
