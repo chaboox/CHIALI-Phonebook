@@ -394,7 +394,7 @@
                             android:layout_width="match_parent"
                             android:padding="10dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/calln"/>
+                            android:src="@drawable/communications"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -418,7 +418,7 @@
                             android:layout_width="match_parent"
                             android:padding="10dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/messagen"/>
+                            android:src="@drawable/sms"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
@@ -439,8 +439,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/mailn"
-                        android:padding="12dp"/>
+                        android:src="@drawable/note"/>
                 </RelativeLayout></androidx.cardview.widget.CardView>
             </LinearLayout>
         </LinearLayout>
