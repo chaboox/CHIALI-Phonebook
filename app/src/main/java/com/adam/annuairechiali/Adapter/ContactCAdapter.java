@@ -97,20 +97,12 @@ public class ContactCAdapter extends RecyclerView.Adapter<ContactCAdapter.ViewHo
             job ="";
         holder.job.setText(job);
         holder.company.setVisibility(View.VISIBLE);
+        if(!mData.get(position).getDepartmentI().equals("NR"))
         holder.company.setText(mData.get(position).getCompany() + " - " + mData.get(position).getDepartmentI());
-        /*
-        if(mData.get(position).isBoss()) {
-            holder.star.setImageResource(R.drawable.star3);
-            holder.star.setVisibility(View.VISIBLE);
-           // holder.name.setTextColor(mContext.getResources().getColor(R.color.white));
-           // holder.job.setTextColor(mContext.getResources().getColor(R.color.white));
-        }else {
+        else
+            holder.company.setText(mData.get(position).getCompany());
 
-            holder.star.setVisibility(View.GONE);
-          //  holder.cardView.setCardBackgroundColor(mContext.getResources().getColor(R.color.white));
-            //holder.name.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
-            //holder.job.setTextColor(mContext.getResources().getColor(R.color.gray3));
-        }*/
+
         holder.id = mData.get(position).getId();
 
         Log.d("HOLDER", "onBindViewHolder: " + holder.toString().substring(11, 18) + holder.toString());
