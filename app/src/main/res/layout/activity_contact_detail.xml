@@ -370,7 +370,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="15"
-                android:layout_marginTop="25dp"
+
                 android:gravity="center"
 
                 android:orientation="horizontal">
@@ -394,7 +394,7 @@
                             android:layout_width="match_parent"
                             android:padding="10dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/communications"/>
+                            android:src="@drawable/calln"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -418,7 +418,7 @@
                             android:layout_width="match_parent"
                             android:padding="10dp"
                             android:layout_height="match_parent"
-                            android:src="@drawable/sms"/>
+                            android:src="@drawable/messagen"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
@@ -439,7 +439,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/note"/>
+                        android:src="@drawable/mailn"
+                        android:padding="13dp"/>
                 </RelativeLayout></androidx.cardview.widget.CardView>
             </LinearLayout>
         </LinearLayout>

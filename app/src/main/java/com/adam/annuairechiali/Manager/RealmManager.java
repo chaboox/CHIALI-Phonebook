@@ -15,6 +15,8 @@ import com.adam.annuairechiali.Model.ListDepartment;
 //import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import io.realm.Case;
@@ -772,7 +774,11 @@ public class RealmManager {
             }
 
             ArrayList<Department> departments= getDepartmentByCompany(company.getNameAD());
-
+            Collections.sort(departments, new Comparator<Department>() {
+                public int compare(Department v1, Department v2) {
+                    return v1.getDescription().compareTo(v2.getDescription());
+                }
+            });
            /* initHandler();
             Message message = new Message();
             Object[] objects = new Object[2];
