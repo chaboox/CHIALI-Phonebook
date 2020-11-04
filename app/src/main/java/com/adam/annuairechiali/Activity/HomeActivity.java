@@ -35,6 +35,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -707,12 +708,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if(s.toString().length() == 0){
-
+                    activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
                     AnimationManager.setToInvisibleRight(contactsView);
                        AnimationManager.SetToVisibleLeft(myrv);
                 }
                 else if(s.toString().length() >  0 && (myrv.getVisibility() == View.VISIBLE )){
-
+                    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
                     AnimationManager.SetToVisibleRight(contactsView);
 
 
@@ -999,7 +1000,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     new MaterialTapTargetPrompt.Builder(HomeActivity.this)
                             .setTarget(R.id.search)
                             .setPrimaryText("Rechercher un collaborateur")
-                            .setSecondaryText("Possibilité de rechercher par nom, numéro et poste")
+                            .setSecondaryText("Possibilité de rechercher par nom, numéro, structure et poste")
                             .setPromptBackground(new RectanglePromptBackground())
                             .setPromptFocal(new RectanglePromptFocal())
                             .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()

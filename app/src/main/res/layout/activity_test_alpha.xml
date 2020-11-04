@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:shadowColor="@color/white"
-                android:textColor="@color/gray2"
+                android:textColor="@color/colorPrimaryDark"
                 android:padding="10dp"
                 android:maxLines="1"
                 android:hint="Rechercher un contact"

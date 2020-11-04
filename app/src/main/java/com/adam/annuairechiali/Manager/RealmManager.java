@@ -293,28 +293,28 @@ public class RealmManager {
         RealmQuery<Contact> query = realm.where(Contact.class);
         if(!secondWord.equals("")){
             query.like("nameN","" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
-            conta = query.limit(13).sort("nameN").findAll();
+            conta = query.limit(20).sort("nameN").findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
-            if(contactArray.size() < 13){
+            if(contactArray.size() < 20){
                 RealmQuery<Contact> query2 = realm.where(Contact.class);
                 query2.like("nameN","*?" + firstWord + "*" + secondWord + "*" , Case.INSENSITIVE);
-                conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
+                conta = query2.limit(20 - contactArray.size()).sort("nameN").findAll();
                 for(Contact c : conta){
                     contactArray.add(c);
                 }
             }}
         else {
             query.like("nameN","" + firstWord + "*"  , Case.INSENSITIVE);
-            conta = query.limit(13).sort("nameN").findAll();
+            conta = query.limit(20).sort("nameN").findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
-            if(contactArray.size() < 13){
+            if(contactArray.size() < 20){
                 RealmQuery<Contact> query2 = realm.where(Contact.class);
                 query2.like("nameN","*?" + firstWord + "*"  , Case.INSENSITIVE);
-                conta = query2.limit(13 - contactArray.size()).sort("nameN").findAll();
+                conta = query2.limit(20 - contactArray.size()).sort("nameN").findAll();
                 for(Contact c : conta){
                     contactArray.add(c);
                 }
@@ -323,38 +323,38 @@ public class RealmManager {
 
 
 
-        if(contactArray.size() < 13){
+        if(contactArray.size() < 20){
             conta = realm.where(Contact.class).contains("descriptionN", search, Case.INSENSITIVE).not().beginGroup()
                     .beginsWith("nameN", search, Case.INSENSITIVE).or()
                     .contains("nameN", search, Case.INSENSITIVE)
-                    .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
+                    .endGroup().sort("nameN").limit(20 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
         }
 
-        if(contactArray.size() < 13){
+        if(contactArray.size() < 20){
             conta = realm.where(Contact.class).contains("departmentN", search, Case.INSENSITIVE).not().beginGroup()
                     .beginsWith("nameN", search, Case.INSENSITIVE).or()
                     .contains("nameN", search, Case.INSENSITIVE).or().contains("descriptionN", search, Case.INSENSITIVE)
-                    .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
+                    .endGroup().sort("nameN").limit(20 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
         }
 
-        if(contactArray.size() < 13){
+        if(contactArray.size() < 20){
             conta = realm.where(Contact.class).contains("departmentI", search, Case.INSENSITIVE).not().beginGroup()
                     .beginsWith("nameN", search, Case.INSENSITIVE).or()
                     .contains("nameN", search, Case.INSENSITIVE).or().contains("descriptionN", search, Case.INSENSITIVE).or().contains("departmentN", search, Case.INSENSITIVE)
-                    .endGroup().sort("nameN").limit(13 - contactArray.size()).findAll();
+                    .endGroup().sort("nameN").limit(20 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
         }
 
-        if(contactArray.size() < 13){
-            conta = realm.where(Contact.class).beginsWith("number", search, Case.INSENSITIVE).sort("name").limit(13 - contactArray.size()).findAll();
+        if(contactArray.size() < 20){
+            conta = realm.where(Contact.class).beginsWith("number", search, Case.INSENSITIVE).sort("name").limit(20 - contactArray.size()).findAll();
             for(Contact c : conta){
                 contactArray.add(c);
             }
