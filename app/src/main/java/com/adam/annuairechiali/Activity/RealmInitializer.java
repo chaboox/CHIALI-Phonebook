@@ -15,7 +15,7 @@ public class RealmInitializer extends Application {
         // we'll change it to "myrealm.realm"
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder().name("myrealm.realm").
-                  schemaVersion(1) // Must be bumped when the schema changes
+                  schemaVersion(2) // Must be bumped when the schema changes
                 .migration(new MyMigration())
         .build();
         Realm.setDefaultConfiguration(config);

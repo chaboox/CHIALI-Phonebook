@@ -20,10 +20,11 @@ public class MyMigration implements RealmMigration {
         //     private int age;
         //     // getters and setters left out for brevity
         // }
-        if (oldVersion == 0) {
+        if (oldVersion == 1) {
             try {
-            schema.get("Contact")
-                    .addField("boss", boolean.class);
+            schema.get("Contact").addField("departmentN", String.class);
+            schema.get("Contact").addField("descriptionN", String.class);
+
             oldVersion++;
             }
             catch (Exception e){
